@@ -19,7 +19,7 @@ class FileUploadService extends BaseService
         $name = $prefix.time();
         $filePath = $folder.$name.'.'.$image->getClientOriginalExtension();
         
-        return $this->uploadOne($image, $folder, 'public', $name);
+        return $this->uploadOne($image, $folder, 'store', $name);
     }
     public function uploadVideo($video)
     {
@@ -27,6 +27,6 @@ class FileUploadService extends BaseService
         $name = time();
         $filePath = $folder.$name.'.'.$video->getClientOriginalExtension();
         
-        return $this->uploadOne($video, $folder, 'public', $name);
+        return $this->uploadOne($video, $folder, 'store', $name);
     }
 }

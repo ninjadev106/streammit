@@ -33,7 +33,7 @@
                             <td>
                                 <div class="media align-items-center">
                                     <div class="iq-movie">
-                                        <a href="javascript:void(0);"><img src="{{ asset('storage/'.$show->file) }}"
+                                        <a href="javascript:void(0);"><img src="{{ asset('/'.$show->file) }}"
                                             class="img-border-radius avatar-40 img-fluid" alt=""></a>
                                     </div>
                                     <div class="media-body text-white text-left ml-3">

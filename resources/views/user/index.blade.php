@@ -29,7 +29,7 @@
                                 @foreach($users as $user)
                                 <tr id="{{ 'info-'.$user->id }}">
                                     <td>
-                                        <img src="{{ asset('storage/'.$user->profileImage) }}" class="img-fluid avatar-50" alt="author-profile">
+                                        <img src="{{ asset('/'.$user->profileImage) }}" class="img-fluid avatar-50" alt="author-profile">
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->mobileNo }}</td>

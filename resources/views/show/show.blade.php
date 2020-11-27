@@ -17,12 +17,12 @@
                             <div class="d-flex series mt-2 mb-4">
                                 <div class="show-post">
                                     <h6>Post Image</h6>
-                                    <a href="javascript:void();"><img src="{{ asset('storage/'.$show->file) }}" class="img-fluid"
+                                    <a href="javascript:void();"><img src="{{ asset('/'.$show->file) }}" class="img-fluid"
                                         alt=""></a>
                                 </div>  
                                 <div class="show-banner ml-2">
                                     <h6>Banner Image</h6>
-                                    <a href="javascript:void();"><img src="{{ asset('storage/'.$show->banner) }}" class="img-fluid"
+                                    <a href="javascript:void();"><img src="{{ asset('/'.$show->banner) }}" class="img-fluid"
                                         alt=""></a>
                                 </div>
                             </div>

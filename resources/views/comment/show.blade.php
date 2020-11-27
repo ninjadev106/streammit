@@ -20,7 +20,7 @@
                         <div class="media align-items-center">
                             <div class="iq-movie">
                                 <a href="javascript:void(0);"><img
-                                    src="{{ asset('storage/'.$comment->author->profileImage) }}"
+                                    src="{{ asset($comment->author->profileImage) }}"
                                     class="img-border-radius avatar-50 img-fluid" alt=""></a>
                             </div>
                             <div class="media-body text-white text-left ml-3">

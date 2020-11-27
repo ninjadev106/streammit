@@ -28,7 +28,7 @@
                             <div class="col-12 form_gallery form-group">
                                 <label id="gallery2" for="form_gallery-upload">Upload Image</label>
                                 <input data-name="#gallery2" id="form_gallery-upload" class="form_gallery-upload"
-                                    type="file" accept=".png, .jpg, .jpeg" name="file" value="{{ asset('storage/'.$movie->file) }}">
+                                    type="file" accept=".png, .jpg, .jpeg" name="file" value="{{ asset('/'.$movie->file) }}">
                             </div>
                             <div class="col-md-6 form-group">
                                 <select class="form-control" id="category" name="category" data-opt-value="{{ $movie->category }}">

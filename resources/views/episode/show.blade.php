@@ -16,7 +16,7 @@
                         <div class="col-md-12">
                             <div class="video-container iq-main-slider">
                                 <video class="video d-block" style="width: 100%;" controls loop>
-                                    <source src="{{ asset('storage/'.$episode->video_link) }}" type="video/mp4">
+                                    <source src="{{ asset('/'.$episode->video_link) }}" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                             <li class="text-white ml-2">{{ $episode->name }}</li>
                                         </ul>
                                         <div class="d-flex series mt-2 mb-4">
-                                            <a href="javascript:void();"><img src="{{ asset('storage/'.$episode->file) }}" class="img-fluid"
+                                            <a href="javascript:void();"><img src="{{ asset('/'.$episode->file) }}" class="img-fluid"
                                                 alt=""></a>
                                             <p class="trending-dec w-100 mb-2 ml-3">{{ $episode->description }}</p>
                                         </div>
