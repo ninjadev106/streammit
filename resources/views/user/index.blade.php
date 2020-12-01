@@ -53,9 +53,12 @@
                                                 class="ri-pencil-line"></i></a>
                                             <a class="iq-bg-warning save non-visible" data-toggle="tooltip" data-placement="top" title="" data-original-title="Save" href="#"><i 
                                                 class="ri-save-line"></i></a>
+                                            @csrf
+                                            @method('DELETE')
                                             <a class="iq-bg-primary delete" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#" data-id="{{ $user->id }}"><i
                                                 class="ri-delete-bin-line"></i></a>
                                         </div>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -107,6 +110,7 @@
         var status = $('#info-' + user + ' .status select').val();
 
         var _token = $('meta[name=csrf-token]').attr('content');
+
         $.ajax({
             url: '/admin/user/' + user,
             method: 'PUT',

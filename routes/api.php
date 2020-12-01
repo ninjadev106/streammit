@@ -2,7 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\MovieController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ShowController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FContentController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\JwtAuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,3 +23,18 @@ use App\Http\Controllers\API\MovieController;
 //     return $request->user();
 // });
 Route::get('/movie/all', [MovieController::class, 'all']);
+Route::get('/show/all', [ShowController::class, 'all']);
+Route::get('/category/all', [CategoryController::class, 'all']);
+Route::get('/content-map/all', [FContentController::class, 'all']);
+Route::get('/comment/{c_type}/{c_id}', [CommentController::class, 'all']);
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('/signin', [JwtAuthController::class, 'login']);
+    Route::post('/signup', [JwtAuthController::class, 'register']);
+    Route::post('/logout', [JwtAuthController::class, 'logout']);
+    Route::post('/refresh', [JwtAuthController::class, 'refresh']);
+    Route::get('/user-profile', [JwtAuthController::class, 'userProfile']);    
+});

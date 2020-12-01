@@ -20,14 +20,23 @@ class UserSeeder extends Seeder
             'name' => 'Aristo',
             'email' => 'aristo@gmail.com',
             'password' => Hash::make('thunder'),
-            'mobileNo' => '12345678',
-            'gender' => 'male',
-            'country' => 'India',
             'lang' => 'English',
-            'profileImage' => 'uploads/images/users/01.jpg',
-            'birthDate' => '1988-08-08',
             'joinDate' => '2020-11-15',
             'status' => 1
+        ]);
+        DB::table('si_users_profiles')->insert([
+            'user_id' => 1,
+            'firstName' => 'Aristo',
+            'lastName' => 'Telles',
+            'image' => 'uploads/images/users/01.jpg',
+            'city' => 'atlanta',
+            'gender' => 'male',
+            'birthDate' => date('Y-m-d'),
+            'martial' => 'single',
+            'country' => 1,
+            'state' => 2,
+            'address' => 'Linden Street No3',
+            'mobileNo' => '1234455678'
         ]);
     }
 }

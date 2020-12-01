@@ -29,4 +29,15 @@ class CommentController extends Controller
         $this->commentService->delete($id);
         return redirect()->route('admin.comment.index');
     }
+
+    /*
+    |------------------------------------------------------------------
+    | Api actions
+    |------------------------------------------------------------------
+    */
+    public function all($c_type, $c_id)
+    {
+        $comments = $this->commentService->getByCTInfo($c_type, $c_id);
+        return response()->json($comments);
+    }
 }

@@ -9,6 +9,7 @@ class EpisodeService extends BaseService
 {
 
 	protected $showService;
+
 	public function __construct(ShowService $showService)
 	{
 		$this->showService = $showService;

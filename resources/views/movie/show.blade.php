@@ -50,7 +50,7 @@
                                     <div class="col-lg-5 d-flex">
                                         <a class="btn btn-success" href="{{ route('admin.movie.edit', $movie->id) }}">Update</a>
                                         <a type="reset" class="btn btn-primary ml-2" onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Delete</a>
-                                        <a class="btn btn-danger ml-2" href="{{ route('admin.movie.index') }}">Back</a>
+                                        <a class="btn btn-danger ml-2" href="{{ url()->previous() }}">Back</a>
                                     </div>
                                 </form>
                             </div>

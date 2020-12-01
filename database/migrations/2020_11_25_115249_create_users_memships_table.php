@@ -19,8 +19,8 @@ class CreateUsersMemshipsTable extends Migration
             $table->unsignedBigInteger('memship_id');
             $table->dateTime('updated_at')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('si_users')->delete('cascade');
-            $table->foreign('memship_id')->references('id')->on('si_membership')->delete('cascade');
+            $table->foreign('user_id')->references('id')->on('si_users')->onDelete('cascade');
+            $table->foreign('memship_id')->references('id')->on('si_membership')->onDelete('cascade');
         });
     }
 

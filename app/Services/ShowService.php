@@ -27,6 +27,7 @@ class ShowService extends BaseService
 			$show->lang = $show->lang_record->name;
 			$show->quality = $show->quality_record->name;
 			$show->seasons = count($show->episodes()->groupBy('season')->get()->toArray());
+			$show->episodes = $show->episodes;
 		}
 		return $shows;
 	}

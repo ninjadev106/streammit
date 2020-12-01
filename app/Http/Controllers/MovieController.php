@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Services\MovieService;
+use App\Services\FContentService;
 use App\Services\FileUploadService;
 
 class MovieController extends Controller
@@ -11,10 +14,13 @@ class MovieController extends Controller
     //
     protected $movieService;
     protected $fileUploadService;
-    public function __construct(MovieService $movieService, FileUploadService $fileUploadService)
+    protected $fContentService;
+
+    public function __construct(MovieService $movieService, FileUploadService $fileUploadService, FContentService $fContentService)
     {   
         $this->movieService = $movieService;
         $this->fileUploadService = $fileUploadService;
+        $this->fContentService = $fContentService;
     }
     public function index()
     {   
@@ -85,7 +91,20 @@ class MovieController extends Controller
     }
     public function destroy($id)
     {
+        $this->fContentService->deleteAll('movie', $id);
         $this->movieService->delete($id);
         return redirect()->route('admin.movie.index');
+    }
+
+
+    /*
+    |------------------------------------------------------------------
+    | Api actions
+    |------------------------------------------------------------------
+    */
+    public function all()
+    {
+        $movies = $this->movieService->getAll();
+        return response()->json($movies);
     }
 }

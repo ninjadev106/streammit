@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Services\ShowService;
+use App\Services\FContentService;
 use App\Services\FileUploadService;
 
 class ShowController extends Controller
@@ -11,10 +14,11 @@ class ShowController extends Controller
     //
     protected $showService;
     protected $fileUploadService;
-    public function __construct(ShowService $showService, FileUploadService $fileUploadService)
+    public function __construct(ShowService $showService, FileUploadService $fileUploadService, FContentService $fContentService)
     {
         $this->showService = $showService;
         $this->fileUploadService = $fileUploadService;
+        $this->fContentService = $fContentService;
     }
     public function index()
     {   
@@ -80,7 +84,20 @@ class ShowController extends Controller
     }
     public function destroy($id)
     {
+        $this->fContentService->deleteAll('show', $id);
         $this->showService->delete($id);
         return redirect()->route('admin.show.index');
+    }
+
+
+    /*
+    |------------------------------------------------------------------
+    | Api actions
+    |------------------------------------------------------------------
+    */
+    public function all()
+    {
+        $shows = $this->showService->getAll();
+        return response()->json($shows);
     }
 }

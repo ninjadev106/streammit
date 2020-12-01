@@ -12,6 +12,8 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\FContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ Route::get('/roles', [RoleController::class, 'make_roles']);
 | Front Page Routes
 |-------------------------------------------------------------------------
 */
-Route::get('/{any}', [SiteController::class, 'index'])->where('any', '^(?!admin|login|register|logout).*$');
+Route::get('/{any}', [SiteController::class, 'index'])->where('any', '^(?!admin|login|register|logout|password|email).*$');
 // Route::middleware(['auth', 'role:customer'])->group(function () {
     // Route::get('/{any}', [SiteController::class, 'index'])->where('any', '^(?!admin|login|register|logout).*$');
 // });
@@ -86,6 +88,19 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/admin/episode/{id}', [EpisodeController::class, 'destroy'])->name('admin.episode.destroy');
 
     Route::get('/admin/pricing', [PricingController::class, 'index'])->name('admin.pricing');
+
+    Route::get('/admin/profile/', [AdminPageController::class, 'profile_index'])->name('admin.profile.index');
+    Route::get('/admin/profile/edit', [AdminPageController::class, 'profile_edit'])->name('admin.profile.edit');
+    Route::put('/admin/profile/{c_or_p}', [AdminPageController::class, 'profile_update'])->name('admin.profile.update');
+
+    Route::get('/admin/account/setting', [AdminPageController::class, 'account_setting'])->name('admin.account.setting');
+    Route::put('/admin/account/{p_or_o}', [AdminPageController::class, 'account_update'])->name('admin.account.update');
+
+    Route::get('/admin/f-content/{category}', [FContentController::class, 'index'])->name('admin.f-content.index');
+    Route::get('/admin/f-content/content/{type}', [FContentController::class, 'content'])->name('admin.f-content.content');
+    Route::get('/admin/f-content/{category}/show/{id}', [FContentController::class, 'show'])->name('admin.f-content.show');
+    Route::post('/admin/f-content/store/{category}', [FContentController::class, 'store'])->name('admin.f-content.store');
+    Route::delete('/admin/f-content/{category}/destroy/{id}', [FContentController::class, 'destroy'])->name('admin.f-content.destroy');
 });
 /*
 |-------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\EpisodeService;
+use App\Services\FContentService;
 use App\Services\FileUploadService;
 
 class EpisodeController extends Controller
@@ -11,10 +12,13 @@ class EpisodeController extends Controller
     //
     protected $episodeService;
     protected $fileUploadService;
-    public function __construct(EpisodeService $episodeService, FileUploadService $fileUploadService)
+    protected $fContentService;
+
+    public function __construct(EpisodeService $episodeService, FileUploadService $fileUploadService, FContentService $fContentService)
     {   
         $this->episodeService = $episodeService;
         $this->fileUploadService = $fileUploadService;
+        $this->fContentService = $fContentService;
     }
     public function index()
     {   
@@ -84,6 +88,7 @@ class EpisodeController extends Controller
     }
     public function destroy($id)
     {
+        $this->fContentService->deleteAll('episode', $id);
         $this->episodeService->delete($id);
         return redirect()->route('admin.episode.index');
     }

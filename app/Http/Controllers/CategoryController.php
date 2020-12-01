@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Services\CategoryService;
+
 class CategoryController extends Controller
 {
     //
@@ -55,5 +58,16 @@ class CategoryController extends Controller
     {
         $this->categoryService->delete($id);
         return redirect()->route('admin.category.index');
+    }
+
+    /*
+    |------------------------------------------------------------------
+    | Api actions
+    |------------------------------------------------------------------
+    */
+    public function all()
+    {
+        $categories = $this->categoryService->getAll();
+        return response()->json($categories);
     }
 }

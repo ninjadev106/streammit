@@ -19,19 +19,19 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('mobileNo')->nullable();
-            $table->string('gender')->nullable();
-            $table->string('country')->nullable();
-            $table->string('profileImage')->nullable();
-            $table->dateTime('birthDate')->nullable();
             $table->string('lang')->nullable();
+            $table->string('facebookLink')->nullable();
+            $table->string('twitterLink')->nullable();
+            $table->string('googleLink')->nullable();
+            $table->string('instagramLink')->nullable();
+            $table->string('youtubeLink')->nullable();
             $table->dateTime('joinDate');
             $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

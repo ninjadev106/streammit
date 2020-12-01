@@ -37,7 +37,7 @@
                                             class="img-border-radius avatar-40 img-fluid" alt=""></a>
                                     </div>
                                     <div class="media-body text-white text-left ml-3">
-                                        <p class="mb-0">Day of Darkness</p>
+                                        <p class="mb-0">{{ $show->title }}</p>
                                     </div>
                                 </div>
                             </td>

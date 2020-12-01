@@ -21,15 +21,7 @@ class CommentService extends BaseService
 	{
         $comments = Comment::all();
         foreach ($comments as $comment) {
-            $c_type = $comment->content_type;
-            $c_id = $comment->content_id;
-            if ($c_type == 'movie') 
-                $comment->title = $this->movieService->getById($c_id)->title;
-            else if ($c_type == 'show')
-                $comment->title = $this->showService->getById($c_id)->title;
-            else if ($c_type == 'episode')
-                $comment->title = $this->episodeService->getById($c_id)->name;
-            $comment->author = $comment->author_record->name;
+            $comment = $this->getDetail($comment->id);
         }
         return $comments;
 	}
@@ -54,6 +46,14 @@ class CommentService extends BaseService
         return $comment;
     }
     
+    public function getByCTInfo($c_type, $c_id)
+    {
+        $comments = Comment::where(['content_type' => $c_type, 'content_id' => $c_id])->get();
+        foreach ($comments as $comment) {
+            $comment = $this->getDetail($comment->id);
+        }
+        return $comments;
+    }
 	public function create($data)
 	{
 		return Comment::create($data);

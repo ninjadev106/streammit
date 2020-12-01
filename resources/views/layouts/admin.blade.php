@@ -16,6 +16,9 @@
    <link rel="stylesheet" href="{{ asset('backend/css/typography.css') }}">
    <!-- Flat Pickr CSS -->
    <link rel="stylesheet" href="{{ asset('backend/css/flatpickr.min.css') }}">
+   <!-- Select2 CSS -->
+   <!-- <link rel="stylesheet" href="{{ asset('backend/css/select2.min.css') }}"> -->
+   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"> -->
    <!-- Style CSS -->
    <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
    <!-- Responsive CSS -->
@@ -51,7 +54,7 @@
             <nav class="iq-sidebar-menu">
                <ul id="iq-sidebar-toggle" class="iq-menu">
                   <li class="<?= ($menu_name == 'index') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.dashboard') }}" class="iq-waves-effect"><i class="las la-home iq-arrow-left"></i><span>Dashboard</span></a></li>
-                  <li class="<?= ($menu_name == 'rating') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.rating') }}" class="iq-waves-effect"><i class="las la-star-half-alt"></i><span>Rating </span></a></li>
+                  
                   <li class="<?= ($menu_name == 'comment') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.comment.index') }}" class="iq-waves-effect"><i class="las la-comments"></i><span>Comment</span></a></li>
                   <li class="<?= ($menu_name == 'user') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.user.index') }}" class="iq-waves-effect"><i class="las la-user-friends"></i><span>User</span></a></li>
                   <li class="<?= ($menu_name == 'category') ? 'active' : ''?>">
@@ -89,6 +92,32 @@
                      </ul>
                   </li>
                   <li class="<?= ($menu_name == 'pricing') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.pricing') }}" class="iq-waves-effect"><i class="ri-price-tag-line"></i><span>Pricing</span></a></li>
+                  <li class="<?= ($menu_name == 'f-content') ? 'active' : ''?>">
+                     <a href="#f-content" class="iq-waves-effect <?= ($menu_name == 'f-content') ? '' : 'collasped' ?>" data-toggle="collapse" aria-expanded="<?= ($menu_name == 'f-content') ? 'true' : 'false' ?>"><i
+                        class="las la-film"></i><span>Front Content</span><i
+                        class="ri-arrow-right-s-line iq-arrow-right"></i>
+                     </a>
+                     <ul id="f-content" class="iq-submenu collapse <?= ($menu_name == 'f-content') ? 'show' : '' ?>" data-parent="#iq-sidebar-toggle">
+                     <li class="<?= ($sub_menu_name == 'main-carousel') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'main-carousel') }}"><i class="las la-film"></i>Home Carousel</a></li>
+                        <li class="<?= ($sub_menu_name == 'favorite') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'favorite') }}"><i class="las la-film"></i>Favorite</a></li>
+                        <li class="<?= ($sub_menu_name == 'upcoming') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'upcoming') }}"><i class="las la-film"></i>Upcoming movies</a></li>
+                        <li class="<?= ($sub_menu_name == 'topten') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'topten') }}"><i class="las la-film"></i>Top 10</a></li>
+                        <li class="<?= ($sub_menu_name == 'suggest') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'suggest') }}"><i class="las la-film"></i>Suggested</a></li>
+                        <li class="<?= ($sub_menu_name == 'new-release') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'new-release') }}"><i class="las la-film"></i>New releases</a></li>
+                        <li class="<?= ($sub_menu_name == 'trending') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'trending') }}"><i class="las la-film"></i>Trending</a></li>
+                        <li class="<?= ($sub_menu_name == 'recent-add') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'recent-add') }}"><i class="las la-film"></i>Recently added</a></li>
+                        <li class="<?= ($sub_menu_name == 'watch-again') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'watch-again') }}"><i class="las la-film"></i>Watch it again</a></li>
+                        <li class="<?= ($sub_menu_name == 'onyx-origin') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'onyx-origin') }}"><i class="las la-film"></i>Oynx originals</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-carousel') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-carousel') }}"><i class="las la-film"></i>Movie Carousel</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section1') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section1') }}"><i class="las la-film"></i>Bollywood Blockbusters</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section2') }}"><i class="las la-film"></i>Best Bengali Movies</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section3') }}"><i class="las la-film"></i>Movies We Recommend</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-carousel') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-carousel') }}"><i class="las la-film"></i>Show Carousel</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-section1') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section1') }}"><i class="las la-film"></i>Popular Shows</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section2') }}"><i class="las la-film"></i>Best of International Shows</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section3') }}"><i class="las la-film"></i>Shows We Recommend</a></li>
+                     </ul>
+                  </li>
                </ul>
             </nav>
          </div>
@@ -265,16 +294,16 @@
                      </li>
                      <li class="line-height pt-3">
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                           <img src="{{ asset('backend/images/user/1.jpg') }}" class="img-fluid rounded-circle mr-3" alt="user">
+                           <img src="{{ asset('/'.auth()->user()->profile->image) }}" class="img-fluid rounded-circle mr-3" alt="user">
                         </a>
                         <div class="iq-sub-dropdown iq-user-dropdown">
-                           <div class="iq-card shadow-none m-0">
+                           <div class="iq-card shadow-none m-0">  
                               <div class="iq-card-body p-0 ">
                                  <div class="bg-primary p-3">
                                     <h5 class="mb-0 text-white line-height">Hello {{ auth()->user()->name }}</h5>
                                     <span class="text-white font-size-12">Available</span>
                                  </div>
-                                 <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                 <a href="{{ route('admin.profile.index') }}" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center">
                                        <div class="rounded iq-card-icon iq-bg-primary">
                                           <i class="ri-file-user-line"></i>
@@ -285,7 +314,7 @@
                                        </div>
                                     </div>
                                  </a>
-                                 <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
+                                 <a href="{{ route('admin.profile.edit') }}" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center">
                                        <div class="rounded iq-card-icon iq-bg-primary">
                                           <i class="ri-profile-line"></i>
@@ -296,7 +325,7 @@
                                        </div>
                                     </div>
                                  </a>
-                                 <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                 <a href="{{ route('admin.account.setting') }}" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center">
                                        <div class="rounded iq-card-icon iq-bg-primary">
                                           <i class="ri-account-box-line"></i>
@@ -365,7 +394,8 @@
    <!-- Footer END -->
    <!-- Optional JavaScript -->
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="{{ asset('backend/js/jquery.min.js') }}"></script>
+   <!-- <script src="{{ asset('backend/js/jquery.min.js') }}"></script> -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="{{ asset('backend/js/popper.min.js') }}"></script>
    <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
    <script src="{{ asset('backend/js/jquery.dataTables.min.js') }}"></script>
@@ -376,6 +406,7 @@
    <script src="{{ asset('backend/js/countdown.min.js') }}"></script>
    <!-- Select2 JavaScript -->
    <script src="{{ asset('backend/js/select2.min.js') }}"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> -->
    <!-- Counterup JavaScript -->
    <script src="{{ asset('backend/js/waypoints.min.js') }}"></script>
    <script src="{{ asset('backend/js/jquery.counterup.min.js') }}"></script>
