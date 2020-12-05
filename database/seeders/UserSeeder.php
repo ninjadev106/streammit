@@ -16,14 +16,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('si_users')->insert([
-            'name' => 'Aristo',
-            'email' => 'aristo@gmail.com',
-            'password' => Hash::make('thunder'),
-            'lang' => 'English',
-            'joinDate' => '2020-11-15',
-            'status' => 1
-        ]);
+        // DB::table('si_users')->insert([
+        //     'name' => 'Aristo',
+        //     'email' => 'aristo@gmail.com',
+        //     'password' => Hash::make('thunder'),
+        //     'lang' => 'English',
+        //     'joinDate' => '2020-11-15',
+        //     'status' => 1
+        // ]);
         DB::table('si_users_profiles')->insert([
             'user_id' => 1,
             'firstName' => 'Aristo',

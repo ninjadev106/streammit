@@ -20,10 +20,11 @@ class CommentService extends BaseService
 	public function getAll()
 	{
         $comments = Comment::all();
+        $data = [];
         foreach ($comments as $comment) {
-            $comment = $this->getDetail($comment->id);
+            array_push($data, $this->getDetail($comment->id));
         }
-        return $comments;
+        return $data;
 	}
 
 	public function getById($id)
@@ -42,17 +43,18 @@ class CommentService extends BaseService
             $comment->title = $this->showService->getById($c_id)->title;
         else if ($c_type == 'episode')
             $comment->title = $this->episodeService->getById($c_id)->name;
-        $comment->author = $comment->author_record;
+        $comment->author = $comment->author_record->profile;
         return $comment;
     }
     
     public function getByCTInfo($c_type, $c_id)
     {
         $comments = Comment::where(['content_type' => $c_type, 'content_id' => $c_id])->get();
+        $data = [];
         foreach ($comments as $comment) {
-            $comment = $this->getDetail($comment->id);
+            array_push($data, $this->getDetail($comment->id));
         }
-        return $comments;
+        return $data;
     }
 	public function create($data)
 	{

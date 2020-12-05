@@ -40,4 +40,22 @@ class CommentController extends Controller
         $comments = $this->commentService->getByCTInfo($c_type, $c_id);
         return response()->json($comments);
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'author' => 'required',
+            'cType' => 'required',
+            'cId' => 'required',
+            'description' => 'required',
+        ]);
+        $data = $request->all();
+        $comment = $this->commentService->create([
+            'author' => $data['author'],
+            'content_type' => $data['cType'],
+            'content_id' => $data['cId'],
+            'description' => $data['description'],
+            'date' => date('Y-m-d')
+        ]);
+        return response()->json($comment);
+    }
 }

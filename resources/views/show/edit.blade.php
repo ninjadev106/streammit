@@ -16,12 +16,12 @@
                 </div>
                 </div>
                 <div class="iq-card-body">
-                    <form action="{{ route('admin.show.update', $show->id) }}" method="POST" enctype="multipart/form-data">
+                    <form id="edit-form" action="{{ route('admin.show.update', $show->id) }}" method="POST" onsubmit="return onSubmit(event)" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input type="text" class="form-control" placeholder="Title" name="title" value="{{ $show->title }}">
+                                <input type="text" class="form-control" placeholder="Title" id="title" name="title" value="{{ $show->title }}">
                             </div>
                             <div class="col-md-6 form-group">
                                 <select class="form-control" id="lang" name="lang" data-opt-value="{{ $show->lang }}">
@@ -48,17 +48,17 @@
                                 </select>
                             </div>
                             <div class="col-md-6 form_gallery form-group">
-                                <label id="gallery2" for="form_gallery-upload">Upload Image</label>
-                                <input data-name="#gallery2" id="form_gallery-upload" name="file"
+                                <label id="gallery2" for="file">Upload Image</label>
+                                <input data-name="#gallery2" id="file" name="file"
                                 class="form_gallery-upload" type="file" accept=".png, .jpg, .jpeg" value="{{ $show->file }}">
                             </div>
                             <div class="col-md-6 form_gallery form-group">
-                                <label id="gallery3" for="show2">Upload Show Banner</label>
-                                <input data-name="#gallery3" id="show2" name="banner" class="form_gallery-upload"
+                                <label id="gallery3" for="banner">Upload Show Banner</label>
+                                <input data-name="#gallery3" id="banner" name="banner" class="form_gallery-upload"
                                 type="file" accept=".png, .jpg, .jpeg" value="{{ $show->banner }}">
                             </div>
                             <div class="col-12 form-group">
-                                <textarea id="text1" name="description" rows="5" class="form-control"
+                                <textarea id="description" name="description" rows="5" class="form-control"
                                 placeholder="Description">{{ $show->description }}</textarea>
                             </div>
                         </div>
@@ -84,5 +84,44 @@
     $('select#category').val(cur_category);
     $('select#lang').val(cur_lang);
     $('select#quality').val(cur_quality);
+
+    function onSubmit(e) {
+        let showTitle = $('#edit-form #title').val();
+        let showFile = $('#edit-form #file').attr('value');
+        let showCategory = $('#edit-form #category').val();
+        let showQuality = $('#edit-form #quality').val();
+        let showBanner = $('#edit-form #banner').attr('value');
+        let showDspt = $('#edit-form #description').val();
+        let showLang = $('#edit-form #lang').val();
+
+        if (!showTitle) {
+            alert("Please enter show title");
+            return false;
+        }
+        if (!showFile) {
+            alert("Please select show image");
+            return false;
+        }
+        if (!showBanner) {
+            alert("Please select show banner image");
+            return false;
+        }
+        if (!showDspt) {
+            alert("Please enter show description");
+            return false;
+        }
+        if (!showCategory) {
+            alert("Please select show category");
+            return false;
+        }
+        if (!showQuality) {
+            alert("Please select show quality");
+            return false;
+        }
+        if (!showLang) {
+            alert("Please select show language");
+            return false;
+        }
+    }
 </script>
 @endsection

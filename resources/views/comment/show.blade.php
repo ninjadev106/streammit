@@ -20,11 +20,11 @@
                         <div class="media align-items-center">
                             <div class="iq-movie">
                                 <a href="javascript:void(0);"><img
-                                    src="{{ asset($comment->author->profileImage) }}"
+                                    src="{{ asset($comment->author->image) }}"
                                     class="img-border-radius avatar-50 img-fluid" alt=""></a>
                             </div>
                             <div class="media-body text-white text-left ml-3">
-                                <p class="mb-0">{{ $comment->author->name }}</p>
+                                <p class="mb-0">{{ $comment->author->firstName.' '.$comment->author->lastName }}</p>
                                 <small>{{ $comment->date }}</small>
                             </div>
                         </div>

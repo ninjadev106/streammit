@@ -6,20 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 use App\Services\UserService;
+use App\Services\FileUploadService;
+use App\Rules\MatchOldPassword;
+
 class JwtAuthController extends Controller
 {
     //
     protected $userService;
+    protected $fileUploadService;
     public $token = true;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, FileUploadService $fileUploadService)
     {
         $this->userService = $userService;
+        $this->fileUploadService = $fileUploadService;
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -30,7 +36,7 @@ class JwtAuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:si_users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        if ($validtor->fails())
+        if ($validator->fails())
             return response()->json(['error' => $validator->errors()], 401);
         $user = $this->userService->create($request->all());
         
@@ -78,9 +84,49 @@ class JwtAuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function userProfile() {
-        return response()->json(auth('api')->user());
+        return response()->json(auth('api')->user()->profile);
     }
 
+
+    public function userProfileUpdate(Request $request)
+    {
+        $request->validate([
+            'userId' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'gender' => 'required',
+            'lang' => 'required',
+            'birthDate' => 'required'
+        ]);
+        $data = $request->all();
+        if ($file = $request->file('file'))
+            $data['image'] = $this->fileUploadService->uploadImage($file);
+        
+        $this->userService->updateProfile($data['userId'], $data);
+        return response()->json(auth('api')->user()->profile);
+    }
+
+    public function changePassword(Request $request) 
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => 'required',
+            'new_confirm_password' => 'same:new_password'
+        ]);
+        $data = $request->all();
+        auth('api')->user()->update(['password' => Hash::make($data['new_password'])]);
+        return response()->json(['success' => true]);
+    }
+
+    public function changeEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required'
+        ]); 
+        $data = $request->all();
+        auth('api')->user()->update(['email' => $data['email']]);
+        return response()->json($data['email']);
+    }
     /**
      * Get the token array structure.
      *
@@ -89,11 +135,13 @@ class JwtAuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     protected function createNewToken($token){
+        $user = auth('api')->user();
+        $user->profile = $user->profile;
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60,
-            'user' => auth('api')->user()
+            'user' => $user
         ]);
     }
 }

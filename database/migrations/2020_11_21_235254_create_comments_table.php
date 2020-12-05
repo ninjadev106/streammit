@@ -22,7 +22,7 @@ class CreateCommentsTable extends Migration
             $table->integer('content_id')->nullable();
             $table->dateTime('date')->nullable();
 
-            $table->foreign('author')->references('id')->on('si_users')->delete('cascade');
+            $table->foreign('author')->references('id')->on('si_users')->onDelete('cascade');
             $table->timestamps();
         });
     }

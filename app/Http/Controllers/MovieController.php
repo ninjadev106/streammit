@@ -15,7 +15,7 @@ class MovieController extends Controller
     protected $movieService;
     protected $fileUploadService;
     protected $fContentService;
-
+    
     public function __construct(MovieService $movieService, FileUploadService $fileUploadService, FContentService $fContentService)
     {   
         $this->movieService = $movieService;
@@ -54,7 +54,7 @@ class MovieController extends Controller
             'quality' => 'required',
             'lang' => 'required',  
             'releseDate' => 'required',
-            'duration' => 'required'
+            'duration' => 'required',
         ]);
         $data = $request->all();
 

@@ -259,6 +259,11 @@ class UserService extends BaseService
         return $user->update($data);
 	}
 
+    public function updateProfile($id, $data)
+    {
+        $user = $this->getById($id);
+        return $user->profile->update($data);
+    }
 	public function delete($id)
 	{
 		$user = $this->getById($id);

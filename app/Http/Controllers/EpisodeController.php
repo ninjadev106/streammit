@@ -92,4 +92,11 @@ class EpisodeController extends Controller
         $this->episodeService->delete($id);
         return redirect()->route('admin.episode.index');
     }
+
+
+     /*
+    |------------------------------------------------------------------
+    | Api actions
+    |------------------------------------------------------------------
+    */
 }

@@ -18,8 +18,8 @@ class CreateUsersRolesTable extends Migration
             $table->unsignedBigInteger('role_id');
 
             //FOREIGN KEY CONSTRAINTS
-            $table->foreign('user_id')->references('id')->on('si_users')->delete('cascade');
-            $table->foreign('role_id')->references('id')->on('si_roles')->delete('cascade');
+            $table->foreign('user_id')->references('id')->on('si_users')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('si_roles')->onDelete('cascade');
 
             //SETTING THE PRIMARY KEYS
         //    $table->primary(['role_id']);

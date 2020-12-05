@@ -14,6 +14,9 @@ class ShowController extends Controller
     //
     protected $showService;
     protected $fileUploadService;
+    protected $fContentService;
+    protected $likelogService;
+
     public function __construct(ShowService $showService, FileUploadService $fileUploadService, FContentService $fContentService)
     {
         $this->showService = $showService;

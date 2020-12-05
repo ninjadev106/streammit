@@ -24,5 +24,8 @@ class VideoQualitySeeder extends Seeder
         DB::table('si_video_quality')->insert([
             'name' => 'FHD(1080p)',      
         ]);
+        DB::table('si_video_quality')->insert([
+            'name' => 'UHD(4K +)',      
+        ]);
     }
 }

@@ -12,10 +12,10 @@
                 <div class="iq-card-header d-flex justify-content-between">
                 <div class="iq-header-title">
                     <h4 class="card-title">Add Episode</h4>
-                </div>
+                </div> 
                 </div>
                 <div class="iq-card-body">
-                <form action="{{ route('admin.episode.store') }}" method="POST" enctype="multipart/form-data">
+                <form id="create-form" action="{{ route('admin.episode.store') }}" method="POST" onsubmit="return onSubmit(event)" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-7">
@@ -37,25 +37,25 @@
                                 </select>
                             </div>
                             <div class="col-md-6 form-group">
-                                <input type="text" class="form-control" placeholder="Episode No." name="episode">
+                                <input type="text" class="form-control" placeholder="Episode No." id="episode" name="episode">
                             </div>
                             <div class="col-md-6 form-group">
-                                <input type="text" class="form-control" placeholder="Episode Name" name="name">
+                                <input type="text" class="form-control" placeholder="Episode Name" id="name" name="name">
                             </div>
                             <div class="col-md-12 form_gallery form-group">
-                                <label id="gallery4" for="show3">Upload Image</label>
-                                <input data-name="#gallery4" id="show3" name="file"
+                                <label id="gallery4" for="file">Upload Image</label>
+                                <input data-name="#gallery4" id="file" name="file"
                                     class="form_gallery-upload" type="file" accept=".png, .jpg, .jpeg">
                             </div>
                             <div class="col-md-6 form-group">
-                                <input type="text" class="form-control" placeholder="Running Time in Minutes" name="duration">
+                                <input type="text" class="form-control" placeholder="Running Time in Minutes" id="duration" name="duration">
                             </div>
                             <div class="col-md-6 form-group">
                                 <input class="form-control date-input basicFlatpickr" type="text"
-                                    placeholder="Selete Date" name="date">
+                                    placeholder="Selete Date" id="date" name="date">
                             </div>
                             <div class="col-12 form-group">
-                                <textarea id="text" name="description" rows="5" class="form-control"
+                                <textarea id="description" name="description" rows="5" class="form-control"
                                     placeholder="Description"></textarea>
                             </div>
                             </div>
@@ -63,7 +63,7 @@
                         <div class="col-lg-5">
                             <div class="d-block position-relative">
                             <div class="form_video-upload">
-                                <input type="file" accept="video/mp4,video/x-m4v,video/*" multiple name="video">
+                                <input type="file" accept="video/mp4,video/x-m4v,video/*" id="video" name="video">
                                 <p>Upload video</p>
                             </div>
                             </div>
@@ -85,3 +85,58 @@
     margin-bottom: 20px;
 }
 </style>
+
+@section('script')
+<script>
+    function onSubmit(e) {
+        let episodeNo = $('#create-form #episode').val();
+        let episodeName = $('#create-form #name').val();
+        let episodeFile = $('#create-form #file')[0].files[0];
+        let episodeVideo = $('#create-form #video')[0].files[0];
+        let episodeDspt = $('#create-form #description').val();
+        let episodeDate = $('#create-form #date').val();
+        let episodeduration = $('#create-form #duration').val();
+        let show = $('#create-form #show').val();
+        let season = $('#create-form #season').val();
+
+        let durationTester = /^(10|11|12|[1-9])h [0-5][0-9]m$/
+        let episodeNoTester = /^[1-9][0-9]*$/
+        if (!show) {
+            alert("Please select show value");
+            return false;
+        }
+        if (!season) {
+            alert("Please select season");
+            return false;
+        }
+        if (!episodeNoTester.test(episodeNo)) {
+            alert("Please ensure valid episode number type. (e.g. 12)");
+            return false;
+        }
+        if (!episodeName) {
+            alert("Please enter episode name");
+            return false;
+        }
+        if (!episodeFile) {
+            alert("Please select episode image");
+            return false;
+        }
+        if (!episodeVideo) {
+            alert("Please select episode video");
+            return false;
+        }
+        if (!episodeDspt) {
+            alert("Please enter episode description");
+            return false;
+        }
+        if (!episodeDate) {
+            alert("Please select episode date");
+            return false;
+        }
+        if (!durationTester.test(episodeduration)) {
+            alert("Please ensure valid duration type. (e.g. 2h 12m)");
+            return false;
+        }
+    }
+</script>
+@endsection

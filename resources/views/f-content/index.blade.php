@@ -1,3 +1,4 @@
+
 @extends('layouts.admin', ['menu_name' => 'f-content', 'sub_menu_name' => $category ])
 
 @section('content')
@@ -52,44 +53,44 @@
     </div>
 </div>
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form action="{{ route('admin.f-content.store', $category) }}" method="POST">
-                @csrf
-                <div class="modal-header">
-                    Add New
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <!-- the result to be displayed apply here -->
-                        <div class="col-lg-12 form-group">
-                            <label>Content Type </label>
-                            <select class="form-control select2" id="content-type" name="content_type">
-                                <option value="movie">Movie</option>
-                                <option value="show">Show</option>
-                                <option value="episode">Episode</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-12 form-group">
-                            <label>Content Title</label>
-                            <select class="form-control select2" id="content-title" name="content_id">
-                                
-                            </select>
-                        </div>
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="{{ route('admin.f-content.store', $category) }}" method="POST">
+            @csrf
+            <div class="modal-header">
+                Add New
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- the result to be displayed apply here -->
+                    <div class="col-lg-12 form-group">
+                        <label>Content Type </label>
+                        <select class="form-control select2" id="content-type" name="content_type">
+                            <option value="movie">Movie</option>
+                            <option value="show">Show</option>
+                            <option value="episode">Episode</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <label>Content Title</label>
+                        <select class="form-control select2" id="content-title" name="content_id">
+                            
+                        </select>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger" data-dismiss="modal" aria-label="Close">cancel</button>
-                </div>
-                </form>
             </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-danger" data-dismiss="modal" aria-label="Close">cancel</button>
+            </div>
+            </form>
         </div>
     </div>
+</div>
 @endsection
 
 <style>

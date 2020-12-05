@@ -4,10 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FContentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\JwtAuthController;
+use App\Http\Controllers\LogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +29,9 @@ Route::get('/show/all', [ShowController::class, 'all']);
 Route::get('/category/all', [CategoryController::class, 'all']);
 Route::get('/content-map/all', [FContentController::class, 'all']);
 Route::get('/comment/{c_type}/{c_id}', [CommentController::class, 'all']);
-
+Route::get('/likelog/all', [LogController::class, 'like_all']);
+Route::post('/comment/store', [CommentController::class, 'store']);
+Route::post('/likelog/store', [LogController::class, 'like_store']);
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -37,4 +41,7 @@ Route::group([
     Route::post('/logout', [JwtAuthController::class, 'logout']);
     Route::post('/refresh', [JwtAuthController::class, 'refresh']);
     Route::get('/user-profile', [JwtAuthController::class, 'userProfile']);    
+    Route::post('/user-profile-update', [JwtAuthController::class, 'userProfileUpdate']);    
+    Route::post('/change-password', [JwtAuthController::class, 'changePassword']);
+    Route::post('/change-email', [JwtAuthController::class, 'changeEmail']);
 });

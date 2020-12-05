@@ -39,11 +39,11 @@
             <a href="index.html" class="header-logo">
                <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid rounded-normal" alt="">
                <div class="logo-title">
-                  <span class="text-primary text-uppercase">Streamit</span>
+                  <span class="text-primary text-uppercase">Onyx</span>
                </div>
             </a>
             <div class="iq-menu-bt-sidebar">
-               <div class="iq-menu-bt align-self-center">
+               <div class="iq-menu-bt align-self-center">   
                   <div class="wrapper-menu">
                      <div class="main-circle"><i class="las la-bars"></i></div>
                   </div>

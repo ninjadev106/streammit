@@ -22,14 +22,14 @@ class CreateUsersProfilesTable extends Migration
             $table->string('city')->nullable();
             $table->string('gender')->nullable();
             $table->dateTime('birthDate')->nullable();
-            $table->string('marital')->nullable();
+            $table->string('martial')->nullable();
             $table->unsignedBigInteger('country')->nullable();
             $table->unsignedBigInteger('state')->nullable();
             $table->string('address')->nullable();
             $table->integer('mobileNo')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('si_users')->delete('cascade');
+            $table->foreign('user_id')->references('id')->on('si_users')->onDelete('cascade');
             $table->foreign('country')->references('id')->on('si_country');
             $table->foreign('state')->references('id')->on('si_state');
         });

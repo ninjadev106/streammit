@@ -28,7 +28,7 @@ class CreateEpisodesTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('show')->references('id')->on('si_shows')->delete('cascade');
+            $table->foreign('show')->references('id')->on('si_shows')->onDelete('cascade');
         }); 
     }
 

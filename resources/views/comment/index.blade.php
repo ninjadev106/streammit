@@ -29,7 +29,7 @@
                             <td>
                                 {{ $comment->title }}
                             </td>
-                            <td>{{ $comment->author->name }}</td>
+                            <td>{{ $comment->author->firstName.' '.$comment->author->lastName }}</td>
                             <!-- <td>
                                 <p class="mb-0">{{ $comment->description }}</p>
                             </td> -->
