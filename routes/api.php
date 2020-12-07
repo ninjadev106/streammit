@@ -10,6 +10,7 @@ use App\Http\Controllers\FContentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\JwtAuthController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ContactUSController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,14 +25,19 @@ use App\Http\Controllers\LogController;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/movie/all', [MovieController::class, 'all']);
-Route::get('/show/all', [ShowController::class, 'all']);
-Route::get('/category/all', [CategoryController::class, 'all']);
-Route::get('/content-map/all', [FContentController::class, 'all']);
+Route::get('/movie', [MovieController::class, 'all']);
+Route::get('/show', [ShowController::class, 'all']);
+Route::get('/category', [CategoryController::class, 'all']);
+Route::get('/content-map', [FContentController::class, 'all']);
 Route::get('/comment/{c_type}/{c_id}', [CommentController::class, 'all']);
-Route::get('/likelog/all', [LogController::class, 'like_all']);
-Route::post('/comment/store', [CommentController::class, 'store']);
-Route::post('/likelog/store', [LogController::class, 'like_store']);
+Route::get('/likelog', [LogController::class, 'like_all']);
+Route::post('/comment', [CommentController::class, 'store']);
+
+Route::post('/likelog', [LogController::class, 'like_store']);
+Route::post('/visit', [LogController::class, 'visit_store']);
+Route::post('/download', [LogController::class, 'download_store']);
+Route::post('/view', [LogController::class, 'view_store']); 
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -44,4 +50,6 @@ Route::group([
     Route::post('/user-profile-update', [JwtAuthController::class, 'userProfileUpdate']);    
     Route::post('/change-password', [JwtAuthController::class, 'changePassword']);
     Route::post('/change-email', [JwtAuthController::class, 'changeEmail']);
+
+    Route::post('/contact-us', [ContactUSController::class, 'contact_us_post']);
 });

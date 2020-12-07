@@ -159,6 +159,7 @@ div.dataTables_wrapper div.dataTables_filter label { margin-bottom: 15px; }
 Background Color
 ------------------------------------------------*/
 .bg-primary, .badge-primary { color: var(--iq-white); background: var(--iq-primary) !important; }
+.bg-red, .badge-red { color: var(--iq-white); background: var(--iq-red) !important; }
 .bg-secondary, .badge-secondary { color: var(--iq-white); background-color: var(--iq-secondary) !important; }
 .bg-success, .badge-success { color: var(--iq-white); background: var(--iq-success) !important; }
 .bg-danger, .badge-danger { color: var(--iq-white); background: var(--iq-danger) !important; }
@@ -179,6 +180,7 @@ Background Color Opacity
 .iq-bg-warning { background: var(--iq-light-warning) !important; color: var(--iq-warning) !important; }
 .iq-bg-info { background: var(--iq-light-info) !important; color: var(--iq-info) !important; }
 .iq-bg-dark { background: var(--iq-light-dark) !important; color: var(--iq-dark1) !important; }
+.iq-bg-red { background: var(--iq-light-red) !important; color: var(--iq-red) !important; }
 
 /*--------------*/
 .iq-bg-primary-hover:hover { background: var(--iq-light-primary) !important; color: var(--iq-primary); }
@@ -187,6 +189,7 @@ Background Color Opacity
 .iq-bg-primary-danger-hover:hover { background: var(--iq-light-danger) !important; }
 .iq-bg-primary-warning-hover:hover { background: var(--iq-light-warning) !important; }
 .iq-bg-primary-info-hover:hover { background: var(--iq-light-info) !important; }
+.iq-bg-primary-dark-hover:hover { background: var(--iq-light-dark) !important; }
 .iq-bg-primary-dark-hover:hover { background: var(--iq-light-dark) !important; }
 
 /*----------------------------------------------
@@ -203,6 +206,7 @@ Background Color Opacity
 /*----------------------------------------------
 Text Color
 ------------------------------------------------*/
+.text-red { color: var(--iq-red) !important; }
 .text-primary { color: var(--iq-primary) !important; }
 .text-secondary { color: var(--iq-secondary) !important; }
 .text-success { color: var(--iq-success) !important; }

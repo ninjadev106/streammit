@@ -3,8 +3,12 @@
 namespace App\Services;
 
 use App\Models\VideoCategory;
+use App\Models\Movie;
+use App\Models\Show;
+
 class CategoryService extends BaseService
 {
+
 	public function __construct()
 	{
 	
@@ -13,9 +17,13 @@ class CategoryService extends BaseService
 	public function getAll()
 	{
 		$categories = VideoCategory::all();
+		$movies = Movie::all();
+		$shows = Show::all();
+
 		foreach ($categories as $category) 
 		{
 			$category->movie = (count($category->movies) + count($category->shows));
+			$category->percent = bcdiv($category->movie * 100, count($movies) + count($shows));
 		}
 		return $categories;
 	}

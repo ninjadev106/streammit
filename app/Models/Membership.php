@@ -17,17 +17,16 @@ class Membership extends Model
     protected $fillable = [
         'name',
         'feePerMonth',
-        'enbNewMovie',
-        'enbStreamitSpecial',
-        'enbAmericanTvShows',
-        'enbHollywoodMovies',  
-        'enbAdFreeEntertainment',
-        'videoQuality',
+        'multiLoginCount',
+        'unLimitContent',
+        'enbAllDevice',
+        'enbHDQuality',  
+        'enbUHDQuality',
     ];  
 
     protected $table = 'si_membership';
 
     public function users() {
-        return $this->belongsToMany(User::class, 'si_users_memships');
+        return $this->belongsToMany(User::class, 'si_users_memships', 'memship_id', 'user_id');
     }
 }

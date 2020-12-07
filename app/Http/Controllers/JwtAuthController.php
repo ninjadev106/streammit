@@ -13,6 +13,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 use App\Services\UserService;
 use App\Services\FileUploadService;
+use App\Services\LoginLogService;
+
 use App\Rules\MatchOldPassword;
 
 class JwtAuthController extends Controller
@@ -20,12 +22,16 @@ class JwtAuthController extends Controller
     //
     protected $userService;
     protected $fileUploadService;
+    protected $loginLogService;
+
     public $token = true;
 
-    public function __construct(UserService $userService, FileUploadService $fileUploadService)
+    public function __construct(UserService $userService, FileUploadService $fileUploadService, LoginLogService $loginLogService)
     {
         $this->userService = $userService;
         $this->fileUploadService = $fileUploadService;
+        $this->loginLogService = $loginLogService;
+
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -58,15 +64,36 @@ class JwtAuthController extends Controller
         }
 
         if (! $token = auth('api')->attempt($validator->validated())) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['success' => false, 'message' => 'You are an unauthorized user']);
         }
-
+        
+        $user = auth('api')->user();
+        
+        $memship = $user->memships[0];
+        $loginCount = $this->loginLogService->getLoginCount($user);
+        if ($loginCount >= $memship->multiLoginCount) {
+            $devPhrase = $loginCount > 1 ? 'devices' : 'device'; 
+            return response()->json([
+                'success' => false,
+                'message' => 'Already logged into '.$loginCount.' '.$devPhrase.'. Please upgrade your pricing plan, if you want to log in on more than '.$loginCount.' '.$devPhrase.'.'
+            ]);
+        }
+        
+        $this->loginLogService->create([
+            'user_id' => $user->id,
+            'token' => $token,
+            'date' => date('Y-m-d')
+        ]);
         return $this->createNewToken($token);
     }
     public function logout(Request $request)
     {
+        $auth_header = $request->header('Authorization');
+        $token = explode('bearer ', $auth_header)[1];
+        $this->loginLogService->delete($token);
+
         auth('api')->logout();
-        return response()->json(['message' => 'User successfully signed out']);
+        return response()->json(['message' => 'User successfully signed out', 'token' => $request->header('Authorization')]);
     }
 
     /**
@@ -137,7 +164,9 @@ class JwtAuthController extends Controller
     protected function createNewToken($token){
         $user = auth('api')->user();
         $user->profile = $user->profile;
+        $user->memship = $user->memships[0];
         return response()->json([
+            'success' => true,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60,

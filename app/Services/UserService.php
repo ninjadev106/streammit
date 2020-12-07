@@ -224,6 +224,16 @@ class UserService extends BaseService
         $admin_role = Role::where('slug', 'admin')->first();
         return $admin_role->users[0];
     }
+
+    public function aaa()
+    {
+        $memships = Membership::all();
+        foreach ($memships as $memship)
+        {
+            $memship->userCount = count($memship->users);
+        }
+        return $memships;
+    }
 	public function create($data)
 	{
         $user = User::create([

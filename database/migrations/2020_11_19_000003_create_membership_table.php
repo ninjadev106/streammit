@@ -17,16 +17,13 @@ class CreateMembershipTable extends Migration
             //
             $table->id();
             $table->string('name');
-            $table->integer('feePerMonth');
-            $table->integer('enbNewMovie');
-            $table->integer('enbStreamitSpecial');
-            $table->integer('enbAmericanTvShows');
-            $table->integer('enbHollywoodMovies');
-            $table->unsignedBigInteger('videoQuality');
-            $table->integer('enbAdFreeEntertainment');
+            $table->float('feePerMonth');
+            $table->integer('multiLoginCount');
+            $table->integer('unLimitContent');
+            $table->integer('enbAllDevice');
+            $table->integer('enbHDQuality');
+            $table->integer('enbUHDQuality');
             $table->timestamps();
-
-            $table->foreign('videoQuality')->references('id')->on('si_video_quality');
         });
     }
 

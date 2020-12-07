@@ -17,43 +17,30 @@ class MembershipSeeder extends Seeder
         //
         DB::table('si_membership')->insert([
             'name' => 'Basic',
-            'feePerMonth' => 19,
-            'enbNewMovie' => 1,
-            'enbStreamitSpecial' => 0,
-            'enbAmericanTvShows' => 0,
-            'enbHollywoodMovies' => 1,
-            'videoQuality' => 1,
-            'enbAdFreeEntertainment' => 0,
+            'feePerMonth' => 8.99,
+            'multiLoginCount' => 1,
+            'unLimitContent' => 1,
+            'enbAllDevice' => 1,
+            'enbHDQuality' => 0,
+            'enbUHDQuality' => 0,
         ]);
         DB::table('si_membership')->insert([
             'name' => 'Standard',
-            'feePerMonth' => 39,
-            'enbNewMovie' => 1,
-            'enbStreamitSpecial' => 1,
-            'enbAmericanTvShows' => 1,
-            'enbHollywoodMovies' => 1,
-            'videoQuality' => 2,
-            'enbAdFreeEntertainment' => 0,
-        ]);
-        DB::table('si_membership')->insert([
-            'name' => 'Platinum',
-            'feePerMonth' => 119,
-            'enbNewMovie' => 1,
-            'enbStreamitSpecial' => 1,
-            'enbAmericanTvShows' => 1,
-            'enbHollywoodMovies' => 1,
-            'videoQuality' => 3,
-            'enbAdFreeEntertainment' => 1,
+            'feePerMonth' => 13.99,
+            'multiLoginCount' => 2,
+            'unLimitContent' => 1,
+            'enbAllDevice' => 1,
+            'enbHDQuality' => 1,
+            'enbUHDQuality' => 0,
         ]);
         DB::table('si_membership')->insert([
             'name' => 'Premium',
-            'feePerMonth' => 219,
-            'enbNewMovie' => 1,
-            'enbStreamitSpecial' => 1,
-            'enbAmericanTvShows' => 1,
-            'enbHollywoodMovies' => 1,
-            'videoQuality' => 3,
-            'enbAdFreeEntertainment' => 1,
+            'feePerMonth' => 17.99,
+            'multiLoginCount' => 4,
+            'unLimitContent' => 1,
+            'enbAllDevice' => 1,
+            'enbHDQuality' => 1,
+            'enbUHDQuality' => 1,
         ]);
     }
 }

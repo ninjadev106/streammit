@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        Commands\CheckMembership::class
     ];
 
     /**
@@ -25,10 +26,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('check:membership')->daily();
     }
 
     /**
-     * Register the commands for the application.
+     * Register the commands for the applic     ation.
      *
      * @return void
      */

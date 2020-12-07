@@ -1782,83 +1782,9 @@ $(document).ready(function() {
 });
 
 
-// top chart 1
- if(jQuery('#view-chart-01').length){
-       var options = {
-          series: [44, 55, 30, 30],
-          chart: {
-        width: 250,
-          type: 'donut',
-        },
-        colors:['#e20e02', '#f68a04', '#007aff','#545e75'],
-        labels: ["New Customer", "Exsisting Subscriber's", "Daily Visitor's", "Extented Subscriber's"],
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-            show: false,
-            width: 0
-        },
-        legend: {
-            show: false,
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-        };
 
-        var chart = new ApexCharts(document.querySelector("#view-chart-01"), options);
-        chart.render();
-      
-      }
 
-    // top chart 2
- if(jQuery('#view-chart-02').length){
-        var options = {
-          series: [44, 30, 20, 43, 22,20],
-          chart: {
-          width: 250,
-          type: 'donut',
-        },
-        colors:['#e20e02','#83878a', '#007aff','#f68a04', '#14e788','#545e75'],
-        labels: ['Actions', 'Comedy', 'Harror', 'Drama', 'Kids','Thrilled'],
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-            show: false,
-            width: 0
-        },
-        legend: {
-            show: false,
-          formatter: function(val, opts) {
-            return val + " - " + opts.w.globals.series[opts.seriesIndex]
-          }
-        },
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-        };
-
-        var chart = new ApexCharts(document.querySelector("#view-chart-02"), options);
-        chart.render();
-    }
+  
       
 // top chart 2
  if(jQuery('#view-chart-03').length){
