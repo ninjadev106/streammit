@@ -10,12 +10,13 @@ class MovieService extends BaseService
 	protected $langService;
 	protected $qualityService;
 	protected $categoryService;
-
-	public function __construct(CategoryService $categoryService, LanguageService $langService, QualityService $qualityService)
+	protected $notifyService;
+	public function __construct(CategoryService $categoryService, LanguageService $langService, QualityService $qualityService, NotifyService $notifyService)
 	{
 		$this->langService = $langService;
 		$this->qualityService = $qualityService;
 		$this->categoryService = $categoryService;
+		$this->notifyService = $notifyService;
 	}
 
 	public function getAll()
@@ -47,7 +48,14 @@ class MovieService extends BaseService
 	
 	public function create($data)
 	{
-		return Movie::create($data);
+		$movie = Movie::create($data);
+		$notify = array(
+			'icon' => $movie->file,
+			'title' => $movie->title,
+			'body' => 'New Movie',
+			'link' => 'landing-page.movie-category'
+		);
+		$this->notifyService->sendNotify($notify);
 	}
 
 	public function update($id, $data)

@@ -156,48 +156,7 @@
                         </div>
                     </li>
                     @endforeach
-                    @foreach ($topItems as $item)
-                    <li class="col-sm-6 col-lg-4 col-xl-3 iq-rated-box">
-                        <div class="iq-card mb-0">
-                            <div class="iq-card-body p-0">
-                            <div class="iq-thumb">
-                                <a href="javascript:void(0)">
-                                    <img src="{{ asset('/'.$item->file) }}" class="img-fluid w-100 img-border-radius" alt="">
-                                </a>
-                            </div>
-                            <div class="iq-feature-list">
-                                <h6 class="font-weight-600 mb-0">{{ $item->title }}</h6>
-                                <p class="mb-0 mt-2">{{ $item->type }}</p>
-                                <div class="d-flex align-items-center my-2">
-                                    <p class="mb-0 mr-2"><i class="lar la-eye mr-1"></i> <?= KBConverter($item->viewCount) ?></p>
-                                    <p class="mb-0 "><i class="las la-download ml-2"></i>  <?= KBConverter($item->downCount) ?></p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </li>
-                    @endforeach
-                    @foreach ($topItems as $item)
-                    <li class="col-sm-6 col-lg-4 col-xl-3 iq-rated-box">
-                        <div class="iq-card mb-0">
-                            <div class="iq-card-body p-0">
-                            <div class="iq-thumb">
-                                <a href="javascript:void(0)">
-                                    <img src="{{ asset('/'.$item->file) }}" class="img-fluid w-100 img-border-radius" alt="">
-                                </a>
-                            </div>
-                            <div class="iq-feature-list">
-                                <h6 class="font-weight-600 mb-0">{{ $item->title }}</h6>
-                                <p class="mb-0 mt-2">{{ $item->type }}</p>
-                                <div class="d-flex align-items-center my-2">
-                                    <p class="mb-0 mr-2"><i class="lar la-eye mr-1"></i>  <?= KBConverter($item->viewCount) ?></p>
-                                    <p class="mb-0 "><i class="las la-download ml-2"></i>  <?= KBConverter($item->downCount) ?></p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </li>
-                    @endforeach
+                    
                 </ul>
                 </div>
             </div>

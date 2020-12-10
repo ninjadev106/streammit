@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('youtubeLink')->nullable();
             $table->dateTime('joinDate');
             $table->integer('status');
+            $table->text('device_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

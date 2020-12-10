@@ -19,11 +19,16 @@ class VerifyCsrfToken extends Middleware
         '/auth/user-profile-update',
         '/auth/change-password',
         '/auth/change-email',
-        '/auth/contact-us',
+        '/auth/upgrade-membership',
+        '/auth/save-device-token',
         '/comment',
         '/visit',
         '/download',
         '/view',
         '/likelog',
+        '/contact-us',
+        '/notify/confirm',
+        '/checkout-paypal',
+        '/execute-paypal'
     ];
 }

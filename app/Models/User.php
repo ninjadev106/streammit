@@ -32,7 +32,8 @@ class User extends Authenticatable implements JWTSubject
         'instagramLink',
         'youtubeLink',
         'joinDate',
-        'status'
+        'status',
+        'device_token'
     ];  
 
     /**
@@ -55,7 +56,7 @@ class User extends Authenticatable implements JWTSubject
     ];
     
     protected $table = 'si_users';
-
+    
     public function profile()
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');

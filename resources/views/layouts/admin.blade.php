@@ -5,7 +5,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="csrf-token" content="{{csrf_token()}}">
-   <title>Streamit - Responsive Bootstrap 4 Admin Dashboard Template</title>
+   <title>Onyx Streaming Dashboard</title>
    <!-- Favicon -->
    <link rel="stylesheet" href="{{ asset('backend/images/favicon.ico') }}">
    <!-- Bootstrap CSS -->
@@ -91,7 +91,7 @@
                         <li class="<?= ($sub_menu_name == 'episode-list') ? 'active' : '' ?>"><a href="{{ route('admin.episode.index') }}"><i class="las la-eye"></i>Episode List</a></li>
                      </ul>
                   </li>
-                  <li class="<?= ($menu_name == 'pricing') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.pricing') }}" class="iq-waves-effect"><i class="ri-price-tag-line"></i><span>Pricing</span></a></li>
+                  <!-- <li class="<?= ($menu_name == 'pricing') ? 'active active-menu' : '' ?>"><a href="{{ route('admin.pricing') }}" class="iq-waves-effect"><i class="ri-price-tag-line"></i><span>Pricing</span></a></li> -->
                   <li class="<?= ($menu_name == 'f-content') ? 'active' : ''?>">
                      <a href="#f-content" class="iq-waves-effect <?= ($menu_name == 'f-content') ? '' : 'collasped' ?>" data-toggle="collapse" aria-expanded="<?= ($menu_name == 'f-content') ? 'true' : 'false' ?>"><i
                         class="las la-film"></i><span>Front Content</span><i
@@ -109,13 +109,13 @@
                         <li class="<?= ($sub_menu_name == 'watch-again') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'watch-again') }}"><i class="las la-film"></i>Watch it again</a></li>
                         <li class="<?= ($sub_menu_name == 'onyx-origin') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'onyx-origin') }}"><i class="las la-film"></i>Oynx originals</a></li>
                         <li class="<?= ($sub_menu_name == 'movie-carousel') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-carousel') }}"><i class="las la-film"></i>Movie Carousel</a></li>
-                        <li class="<?= ($sub_menu_name == 'movie-section1') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section1') }}"><i class="las la-film"></i>Bollywood Blockbusters</a></li>
-                        <li class="<?= ($sub_menu_name == 'movie-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section2') }}"><i class="las la-film"></i>Best Bengali Movies</a></li>
-                        <li class="<?= ($sub_menu_name == 'movie-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section3') }}"><i class="las la-film"></i>Movies We Recommend</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section1') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section1') }}"><i class="las la-film"></i>Hollywood Blockbusters</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section2') }}"><i class="las la-film"></i>Best Movies</a></li>
+                        <li class="<?= ($sub_menu_name == 'movie-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'movie-section3') }}"><i class="las la-film"></i>Onyx Recommendations</a></li>
                         <li class="<?= ($sub_menu_name == 'show-carousel') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-carousel') }}"><i class="las la-film"></i>Show Carousel</a></li>
                         <li class="<?= ($sub_menu_name == 'show-section1') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section1') }}"><i class="las la-film"></i>Popular Shows</a></li>
-                        <li class="<?= ($sub_menu_name == 'show-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section2') }}"><i class="las la-film"></i>Best of International Shows</a></li>
-                        <li class="<?= ($sub_menu_name == 'show-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section3') }}"><i class="las la-film"></i>Shows We Recommend</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-section2') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section2') }}"><i class="las la-film"></i>Best Tv Shows</a></li>
+                        <li class="<?= ($sub_menu_name == 'show-section3') ? 'active' : '' ?>"><a href="{{ route('admin.f-content.index', 'show-section3') }}"><i class="las la-film"></i>Onyx Recommendations</a></li>
                      </ul>
                   </li>
                </ul>
@@ -222,76 +222,76 @@
                            </div>
                         </div>
                      </li>
-                     <li class="nav-item nav-icon dropdown">
-                        <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
-                           <i class="ri-mail-line"></i>
-                           <span class="bg-primary dots"></span>
-                        </a>
-                        <div class="iq-sub-dropdown">
-                           <div class="iq-card shadow-none m-0">
-                              <div class="iq-card-body p-0 ">
-                                 <div class="bg-primary p-3">
-                                    <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                        <!-- <li class="nav-item nav-icon dropdown">
+                           <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
+                              <i class="ri-mail-line"></i>
+                              <span class="bg-primary dots"></span>
+                           </a>
+                           <div class="iq-sub-dropdown">
+                              <div class="iq-card shadow-none m-0">
+                                 <div class="iq-card-body p-0 ">
+                                    <div class="bg-primary p-3">
+                                       <h5 class="mb-0 text-white">All Messages<small class="badge  badge-light float-right pt-1">5</small></h5>
+                                    </div>
+                                    <a href="#" class="iq-sub-card">
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{{ asset('backend/images/user/01.jpg') }}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Barry Emma Watson</h6>
+                                             <small class="float-left font-size-12">13 Jun</small>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="iq-sub-card">
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{{ asset('backend/images/user/02.jpg') }}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Lorem Ipsum Watson</h6>
+                                             <small class="float-left font-size-12">20 Apr</small>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="iq-sub-card">
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{{ asset('backend/images/user/03.jpg') }}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Why do we use it?</h6>
+                                             <small class="float-left font-size-12">30 Jun</small>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="iq-sub-card">
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{{ asset('backend/images/user/04.jpg') }}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Variations Passages</h6>
+                                             <small class="float-left font-size-12">12 Sep</small>
+                                          </div>
+                                       </div>
+                                    </a>
+                                    <a href="#" class="iq-sub-card">
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{{ asset('backend/images/user/05.jpg') }}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Lorem Ipsum generators</h6>
+                                             <small class="float-left font-size-12">5 Dec</small>
+                                          </div>
+                                       </div>
+                                    </a>
                                  </div>
-                                 <a href="#" class="iq-sub-card">
-                                    <div class="media align-items-center">
-                                       <div class="">
-                                          <img class="avatar-40 rounded" src="{{ asset('backend/images/user/01.jpg') }}" alt="">
-                                       </div>
-                                       <div class="media-body ml-3">
-                                          <h6 class="mb-0 ">Barry Emma Watson</h6>
-                                          <small class="float-left font-size-12">13 Jun</small>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a href="#" class="iq-sub-card">
-                                    <div class="media align-items-center">
-                                       <div class="">
-                                          <img class="avatar-40 rounded" src="{{ asset('backend/images/user/02.jpg') }}" alt="">
-                                       </div>
-                                       <div class="media-body ml-3">
-                                          <h6 class="mb-0 ">Lorem Ipsum Watson</h6>
-                                          <small class="float-left font-size-12">20 Apr</small>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a href="#" class="iq-sub-card">
-                                    <div class="media align-items-center">
-                                       <div class="">
-                                          <img class="avatar-40 rounded" src="{{ asset('backend/images/user/03.jpg') }}" alt="">
-                                       </div>
-                                       <div class="media-body ml-3">
-                                          <h6 class="mb-0 ">Why do we use it?</h6>
-                                          <small class="float-left font-size-12">30 Jun</small>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a href="#" class="iq-sub-card">
-                                    <div class="media align-items-center">
-                                       <div class="">
-                                          <img class="avatar-40 rounded" src="{{ asset('backend/images/user/04.jpg') }}" alt="">
-                                       </div>
-                                       <div class="media-body ml-3">
-                                          <h6 class="mb-0 ">Variations Passages</h6>
-                                          <small class="float-left font-size-12">12 Sep</small>
-                                       </div>
-                                    </div>
-                                 </a>
-                                 <a href="#" class="iq-sub-card">
-                                    <div class="media align-items-center">
-                                       <div class="">
-                                          <img class="avatar-40 rounded" src="{{ asset('backend/images/user/05.jpg') }}" alt="">
-                                       </div>
-                                       <div class="media-body ml-3">
-                                          <h6 class="mb-0 ">Lorem Ipsum generators</h6>
-                                          <small class="float-left font-size-12">5 Dec</small>
-                                       </div>
-                                    </div>
-                                 </a>
                               </div>
                            </div>
-                        </div>
-                     </li>
+                        </li> -->
                      <li class="line-height pt-3">
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                            <img src="{{ asset('/'.auth()->user()->profile->image) }}" class="img-fluid rounded-circle mr-3" alt="user">
@@ -380,10 +380,10 @@
       <div class="container-fluid">
          <div class="row">
             <div class="col-lg-6">
-               <ul class="list-inline mb-0">
+               <!-- <ul class="list-inline mb-0">
                   <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
                   <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
-               </ul>
+               </ul> -->
             </div>
             <div class="col-lg-6 text-right">
                Copyright 2020 <a href="#">Streamit</a> All Rights Reserved.

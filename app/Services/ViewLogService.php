@@ -43,6 +43,8 @@ class ViewLogService extends BaseService
 				$content = $this->movieService->getDetail($cId);
 			else if ($cType == 'show')
 				$content = $this->showService->getDetail($cId);
+			else
+				continue;
 			$content->date = $item->date;
 			$content->viewCount = $item->view_count;
 			$content->downCount = count(DownloadLog::where(['content_type' => $cType, 'content_id' => $cId])->get());

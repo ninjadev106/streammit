@@ -10,12 +10,14 @@ class ShowService extends BaseService
 	protected $langService;
 	protected $qualityService;
 	protected $categoryService;
+	protected $notifyService;
 
-	public function __construct(CategoryService $categoryService, LanguageService $langService, QualityService $qualityService)
+	public function __construct(CategoryService $categoryService, LanguageService $langService, QualityService $qualityService, NotifyService $notifyService)
 	{
 		$this->langService = $langService;
 		$this->qualityService = $qualityService;
 		$this->categoryService = $categoryService;
+		$this->notifyService = $notifyService;
 	}
 
 	public function getAll()
@@ -49,7 +51,14 @@ class ShowService extends BaseService
 	
 	public function create($data)
 	{
-		return Show::create($data);
+		$show = Show::create($data);
+		$notify = array(
+			'icon' => $show->file,
+			'title' => $show->title,
+			'body' => 'New Show',
+			'link' => 'landing-page.show-category'
+		);
+		$this->notifyService->sendNotify($notify);
 	}
 
 	public function update($id, $data)

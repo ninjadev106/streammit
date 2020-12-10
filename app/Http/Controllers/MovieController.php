@@ -15,7 +15,6 @@ class MovieController extends Controller
     protected $movieService;
     protected $fileUploadService;
     protected $fContentService;
-    
     public function __construct(MovieService $movieService, FileUploadService $fileUploadService, FContentService $fContentService)
     {   
         $this->movieService = $movieService;
@@ -23,7 +22,7 @@ class MovieController extends Controller
         $this->fContentService = $fContentService;
     }
     public function index()
-    {   
+    {
         $movies = $this->movieService->getAll();
         return view('movie.index')->with('movies', $movies);
     }
@@ -95,7 +94,6 @@ class MovieController extends Controller
         $this->movieService->delete($id);
         return redirect()->route('admin.movie.index');
     }
-
 
     /*
     |------------------------------------------------------------------

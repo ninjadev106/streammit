@@ -15,6 +15,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\FContentController;
 
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +44,9 @@ Route::get('/{any}', [SiteController::class, 'index'])->where('any', '^(?!admin|
 |-------------------------------------------------------------------------
 */ 
 Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::post('/admin/stripe/pay', [PaymentController::class, 'payWithStripe'])->name('stripe.payment');
+    
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/rating', [RatingController::class, 'index'])->name('admin.rating');
 

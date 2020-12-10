@@ -25,4 +25,14 @@ class Profile extends Model
     ];
 
     protected $table="si_users_profiles";
+
+    public function country_record()
+    {
+        return $this->hasOne(Country::class, 'id', 'country');
+    }
+
+    public function state_record()
+    {
+        return $this->hasOne(State::class, 'id', 'state');
+    }
 }

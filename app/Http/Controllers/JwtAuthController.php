@@ -154,6 +154,18 @@ class JwtAuthController extends Controller
         auth('api')->user()->update(['email' => $data['email']]);
         return response()->json($data['email']);
     }
+
+    public function upgradeMembership(Request $request)
+    {
+        $memshipId = $request->memship_id;
+        $user = auth('api')->user();
+        foreach ($user->memships as $memship) {
+            $memship->pivot->updated_at = date('Y-m-d');
+            $memship->pivot->memship_id = $memshipId;
+            $memship->pivot->save();
+        }
+        return response()->json('membership upgraded successfully');
+    }
     /**
      * Get the token array structure.
      *
@@ -169,8 +181,14 @@ class JwtAuthController extends Controller
             'success' => true,
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60,
+            'expires_in' => auth('api')->factory()->getTTL() * 60 * 60,
             'user' => $user
         ]);
+    }
+
+    public function saveDeviceToken(Request $request) 
+    {
+        auth('api')->user()->update(['device_token' => $request->token]);
+        return response()->json('token saved successfully');
     }
 }

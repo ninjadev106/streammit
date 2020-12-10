@@ -29,12 +29,12 @@
                                 @foreach($users as $user)
                                 <tr id="{{ 'info-'.$user->id }}">
                                     <td>
-                                        <img src="{{ asset('/'.$user->profileImage) }}" class="img-fluid avatar-50" alt="author-profile">
+                                        <img src="{{ asset('/'.$user->profile->image) }}" class="img-fluid avatar-50" alt="author-profile">
                                     </td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{ $user->mobileNo }}</td>
+                                    <td>{{ $user->profile->mobileNo }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->country }}</td>
+                                    <td>{{ $user->profile->country_record->name }}</td>
                                     <td class="status">
                                     @if ($user->status == 0)
                                     <span class="badge iq-bg-warning" data-status="0">Pending</span>

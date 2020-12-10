@@ -22,7 +22,7 @@ class CreateUsersProfilesTable extends Migration
             $table->string('city')->nullable();
             $table->string('gender')->nullable();
             $table->dateTime('birthDate')->nullable();
-            $table->string('martial')->nullable();
+            $table->string('marital')->nullable();
             $table->unsignedBigInteger('country')->nullable();
             $table->unsignedBigInteger('state')->nullable();
             $table->string('address')->nullable();

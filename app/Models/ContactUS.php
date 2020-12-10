@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ContactUS extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','email','message'];
+    protected $fillable = ['name','email','subject', 'message'];
     protected $table = 'si_contact_us';
 }

@@ -20,200 +20,20 @@ class UserService extends BaseService
 	public function getAll()
 	{
         return User::all();
-        // return [
-        //     [
-        //         'id' => 1,
-        //         'name' => 'Sava Grujic',
-		// 		'email' => 'sava.grujic.thunder@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 3,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 4,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 5,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 6,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 7,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 8,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 9,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 10,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 11,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 12,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 13,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 14,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 15,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 16,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 17,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 18,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-		// 	],
-		// 	[
-        //         'id' => 19,
-        //         'name' => 'Aristo',
-		// 		'email' => 'aristo@gmail.com',
-		// 		'mobileNo' => '0123858234',
-        //         'country' => 'India',
-        //         'status' => 'Active',
-        //         'profileImage' => '01.jpg',
-        //         'joinDate' => '21 Jul, 2020'
-        //     ],
-        // ];  
-	}
-
+    }
+    public function getActiveUsers($id = null)
+    {
+        if ($id)
+            return User::where(['status' => 1, 'id' => $id])->get();
+        $users = User::where(['status' => 1])->get();
+        $data = [];
+        foreach ($users as $user)
+        {
+            if ($user->roles[0]->slug != 'admin')
+                $data[] = $user;
+        }
+        return $data;
+    }
 	public function getById($id)
 	{
         return User::find($id);
@@ -234,6 +54,7 @@ class UserService extends BaseService
         }
         return $memships;
     }
+
 	public function create($data)
 	{
         $user = User::create([
@@ -285,6 +106,10 @@ class UserService extends BaseService
 
     }
 
+    public function blockUser($id) {
+        $user = $this->getById($id);
+        return $user->update(['status' => 2]);
+    }
     public function getReferences()
     {
         $countries = Country::all();

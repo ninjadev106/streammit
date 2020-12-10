@@ -89,6 +89,10 @@
 
 @section('script')
 <script>
+    var cur_show = $('select#show').attr('data-opt-value');
+    var cur_season = $('select#season').attr('data-opt-value');
+    $('select#show').val(cur_show);
+    $('select#season').val(cur_season);
     function onSubmit(e) {
         let episodeNo = $('#edit-form #episode').val();
         let episodeName = $('#edit-form #name').val();
