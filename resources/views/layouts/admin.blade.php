@@ -134,7 +134,7 @@
                      <a href="index.html" class="header-logo">
                         <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid rounded-normal" alt="">
                         <div class="logo-title">
-                           <span class="text-primary text-uppercase">Streamit</span>
+                           <span class="text-primary text-uppercase">Onyx</span>
                         </div>
                      </a>
                   </div>
@@ -386,7 +386,7 @@
                </ul> -->
             </div>
             <div class="col-lg-6 text-right">
-               Copyright 2020 <a href="#">Streamit</a> All Rights Reserved.
+               Copyright 2020 <a href="#">Onyx</a> All Rights Reserved.
             </div>
          </div>
       </div>

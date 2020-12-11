@@ -34,7 +34,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->profile->mobileNo }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->profile->country_record->name }}</td>
+                                    <td>{{ $user->profile->country_record ? $user->profile->country_record->name : '' }}</td>
                                     <td class="status">
                                     @if ($user->status == 0)
                                     <span class="badge iq-bg-warning" data-status="0">Pending</span>

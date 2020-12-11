@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2020 at 10:06 PM
+-- Generation Time: Dec 10, 2020 at 09:38 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -232,51 +232,51 @@ CREATE TABLE `si_episodes` (
 --
 
 INSERT INTO `si_episodes` (`id`, `episode`, `name`, `show`, `season`, `description`, `file`, `video_link`, `duration`, `date`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577712.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:21:52'),
-(2, 2, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577726.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:22:06'),
-(3, 3, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577739.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:22:19'),
-(4, 4, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577752.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:22:32'),
-(5, 1, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577766.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:35:43'),
-(6, 2, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577780.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:35:53'),
-(7, 3, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577796.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:36:03'),
-(8, 4, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577811.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:36:12'),
-(9, 1, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577828.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:29:55'),
-(10, 2, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577843.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:30:06'),
-(11, 3, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:30:18'),
-(12, 4, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:30:30'),
-(13, 1, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(14, 2, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
-(15, 3, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
-(16, 4, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
-(17, 1, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:30:43'),
-(18, 2, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
-(19, 3, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
-(20, 4, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
-(21, 5, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(22, 1, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
-(23, 2, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
-(24, 3, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
-(25, 4, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(26, 1, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
-(27, 2, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
-(28, 3, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
-(29, 4, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(30, 1, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-11 00:00:00', NULL, NULL, '2020-12-10 13:31:08'),
-(31, 2, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(32, 3, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
-(33, 4, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(34, 1, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(35, 2, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(36, 3, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-15 00:00:00', NULL, NULL, NULL),
-(37, 4, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(38, 1, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-11 00:00:00', NULL, NULL, '2020-12-10 13:31:26'),
-(39, 2, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(40, 3, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(41, 4, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-08 00:00:00', NULL, NULL, NULL),
-(42, 1, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(43, 2, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(44, 3, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
-(45, 4, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607577296.m4', '2h 57m', '2020-10-20 00:00:00', NULL, NULL, NULL);
+(1, 1, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577712.jpg', 'uploads/videos//1607577712.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:21:52'),
+(2, 2, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577726.jpg', 'uploads/videos//1607577726.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:22:06'),
+(3, 3, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577739.jpg', 'uploads/videos//1607577739.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:22:19'),
+(4, 4, 'Lorem ipsum dolor sit amet', 1, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577752.jpg', 'uploads/videos//1607577752.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:22:32'),
+(5, 1, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577766.jpg', 'uploads/videos//1607577766.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:35:43'),
+(6, 2, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577780.jpg', 'uploads/videos//1607577780.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:35:53'),
+(7, 3, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577796.jpg', 'uploads/videos//1607577796.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:36:03'),
+(8, 4, 'Lorem ipsum dolor sit amet', 1, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577811.jpg', 'uploads/videos//1607577811.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:36:12'),
+(9, 1, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577828.jpg', 'uploads/videos//1607577828.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:29:55'),
+(10, 2, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577843.jpg', 'uploads/videos//1607577843.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, '2020-12-10 13:30:06'),
+(11, 3, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577860.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, '2020-12-10 13:30:18'),
+(12, 4, 'Lorem ipsum dolor sit amet', 2, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577878.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, '2020-12-10 13:30:30'),
+(13, 1, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577878.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(14, 2, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577878.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
+(15, 3, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577878.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
+(16, 4, 'Lorem ipsum dolor sit amet', 2, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577860.jpg', 'uploads/videos//1607577878.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
+(17, 1, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, '2020-12-10 13:30:43'),
+(18, 2, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
+(19, 3, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
+(20, 4, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
+(21, 5, 'Lorem ipsum dolor sit amet', 3, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(22, 1, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
+(23, 2, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
+(24, 3, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
+(25, 4, 'Lorem ipsum dolor sit amet', 3, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(26, 1, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-02 00:00:00', NULL, NULL, NULL),
+(27, 2, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
+(28, 3, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-04 00:00:00', NULL, NULL, NULL),
+(29, 4, 'Lorem ipsum dolor sit amet', 3, 3, 'Lorem ipsum dolor sit amet', 'uploads/images//1607577902.jpg', 'uploads/videos//1607577902.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(30, 1, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-11 00:00:00', NULL, NULL, '2020-12-10 13:31:08'),
+(31, 2, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(32, 3, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-03 00:00:00', NULL, NULL, NULL),
+(33, 4, 'Lorem ipsum dolor sit amet', 4, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(34, 1, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(35, 2, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(36, 3, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-15 00:00:00', NULL, NULL, NULL),
+(37, 4, 'Lorem ipsum dolor sit amet', 4, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578268.jpg', 'uploads/videos//1607578268.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(38, 1, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-11 00:00:00', NULL, NULL, '2020-12-10 13:31:26'),
+(39, 2, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(40, 3, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(41, 4, 'Lorem ipsum dolor sit amet', 5, 1, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-08 00:00:00', NULL, NULL, NULL),
+(42, 1, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(43, 2, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(44, 3, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-01 00:00:00', NULL, NULL, NULL),
+(45, 4, 'Lorem ipsum dolor sit amet', 5, 2, 'Lorem ipsum dolor sit amet', 'uploads/images//1607578286.jpg', 'uploads/videos//1607578286.mp4', '2h 57m', '2020-10-20 00:00:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -444,16 +444,16 @@ CREATE TABLE `si_movies` (
 
 INSERT INTO `si_movies` (`id`, `title`, `description`, `category`, `lang`, `quality`, `file`, `video_link`, `duration`, `releseDate`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Boop Bitty', 'Lorem ipsum dolor sit amet', 1, 1, 2, 'uploads/images//1607577296.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:14:56'),
-(2, 'Burning', 'Lorem ipsum dolor sit amet', 2, 1, 2, 'uploads/images//1607577319.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:15:19'),
-(3, 'Champions', 'Lorem ipsum dolor sit amet', 1, 3, 1, 'uploads/images//1607577480.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:00'),
-(4, 'Dino Land', 'Lorem ipsum dolor sit amet', 4, 2, 3, 'uploads/images//1607580984.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 14:16:24'),
-(5, 'Last Night', 'Lorem ipsum dolor sit amet', 2, 3, 1, 'uploads/images//1607577530.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:50'),
-(6, 'Last Race', 'Lorem ipsum dolor sit amet', 3, 3, 2, 'uploads/images//1607577548.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:19:08'),
-(7, 'Last Breath', 'Lorem ipsum dolor sit amet', 2, 1, 1, 'uploads/images//1607577515.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:35'),
-(8, 'Beyond War', 'Lorem ipsum dolor sit amet', 2, 1, 4, 'uploads/images//1607577280.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:14:40'),
-(9, 'Open Dead Shot', 'Lorem ipsum dolor sit amet', 4, 1, 1, 'uploads/images//1607577578.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:19:38'),
-(10, 'Arrival 1999', 'Lorem ipsum dolor sit amet', 4, 2, 4, 'uploads/images//1607577233.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:13:53'),
-(11, 'My True Freinds', 'Lorem ipsum dolor sit amet', 2, 1, 2, 'uploads/images//1607580902.jpg', 'uploads/videos//1607577296.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 14:15:02');
+(2, 'Burning', 'Lorem ipsum dolor sit amet', 2, 1, 2, 'uploads/images//1607577319.jpg', 'uploads/videos//1607577319.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:15:19'),
+(3, 'Champions', 'Lorem ipsum dolor sit amet', 1, 3, 1, 'uploads/images//1607577480.jpg', 'uploads/videos//1607577480.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:00'),
+(4, 'Dino Land', 'Lorem ipsum dolor sit amet', 4, 2, 3, 'uploads/images//1607580984.jpg', 'uploads/videos//1607580840.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 14:16:24'),
+(5, 'Last Night', 'Lorem ipsum dolor sit amet', 2, 3, 1, 'uploads/images//1607577530.jpg', 'uploads/videos//1607577530.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:50'),
+(6, 'Last Race', 'Lorem ipsum dolor sit amet', 3, 3, 2, 'uploads/images//1607577548.jpg', 'uploads/videos//1607577548.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:19:08'),
+(7, 'Last Breath', 'Lorem ipsum dolor sit amet', 2, 1, 1, 'uploads/images//1607577515.jpg', 'uploads/videos//1607577515.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:18:35'),
+(8, 'Beyond War', 'Lorem ipsum dolor sit amet', 2, 1, 4, 'uploads/images//1607577280.jpg', 'uploads/videos//1607577280.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:14:40'),
+(9, 'Open Dead Shot', 'Lorem ipsum dolor sit amet', 4, 1, 1, 'uploads/images//1607577578.jpg', 'uploads/videos//1607577578.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:19:38'),
+(10, 'Arrival 1999', 'Lorem ipsum dolor sit amet', 4, 2, 4, 'uploads/images//1607577233.jpg', 'uploads/videos//1607577233.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 13:13:53'),
+(11, 'My True Freinds', 'Lorem ipsum dolor sit amet', 2, 1, 2, 'uploads/images//1607580902.jpg', 'uploads/videos//1607580885.mp4', '2h 57m', 2020, NULL, NULL, '2020-12-10 14:15:02');
 
 -- --------------------------------------------------------
 
