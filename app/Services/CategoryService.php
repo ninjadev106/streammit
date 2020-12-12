@@ -23,6 +23,7 @@ class CategoryService extends BaseService
 		foreach ($categories as $category) 
 		{
 			$category->movie = (count($category->movies) + count($category->shows));
+			// $category->percent = bcdiv($category->movie * 100, count($movies) + count($shows));
 			$category->percent = floatval(number_format(($category->movie * 100) / (count($movies) + count($shows) + 1), 2));
 		}
 		return $categories;

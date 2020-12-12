@@ -70,8 +70,8 @@ class UserService extends BaseService
         $user->roles()->attach($customer_role);
 
         // Assign basic membership
-        $basic_memship = Membership::where('name', 'Basic')->first();
-        $user->memships()->attach($basic_memship);
+        $free_memship = Membership::where('name', 'Free Trial')->first();
+        $user->memships()->attach($free_memship);
         foreach ($user->memships as $memship) {
             $memship->pivot->updated_at = date('Y-m-d');
             $memship->pivot->save();

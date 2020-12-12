@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\ContactUs;
+use App\Models\ContactUS;
 use Mail;
 
 class ContactUSController extends Controller
@@ -32,7 +32,7 @@ class ContactUSController extends Controller
                 'message' => $data['message'],
             ), function($message) use ($data){
                 $message->from($data['email']);
-                $message->to('brhor106@gmail.com', 'Admin')->subject($data['subject']);
+                $message->to('info@onyxstreaming.com', 'Admin')->subject($data['subject']);
             });
 
             ContactUS::create($request->all());

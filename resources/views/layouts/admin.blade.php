@@ -36,7 +36,7 @@
       <!-- Sidebar-->
       <div class="iq-sidebar">
          <div class="iq-sidebar-logo d-flex justify-content-between">
-            <a href="index.html" class="header-logo">
+            <a href="{{ route('admin.dashboard') }}" class="header-logo">
                <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid rounded-normal" alt="">
                <div class="logo-title">
                   <span class="text-primary text-uppercase">Onyx</span>
@@ -131,7 +131,7 @@
                      <div class="main-circle"><i class="las la-bars"></i></div>
                   </div>
                   <div class="iq-navbar-logo d-flex justify-content-between">
-                     <a href="index.html" class="header-logo">
+                     <a href="{{ route('admin.dashboard') }}" class="header-logo">
                         <img src="{{ asset('backend/images/logo.png') }}" class="img-fluid rounded-normal" alt="">
                         <div class="logo-title">
                            <span class="text-primary text-uppercase">Onyx</span>
