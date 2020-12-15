@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 use App\Mail\SendMail;
+
+use Mail;
 
 class ResetPasswordController extends Controller
 {

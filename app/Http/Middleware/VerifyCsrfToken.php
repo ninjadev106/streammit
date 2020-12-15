@@ -27,6 +27,8 @@ class VerifyCsrfToken extends Middleware
         '/view',
         '/likelog',
         '/contact-us',
+        '/reset-password-request',
+        '/change-password1',
         '/notify/confirm',
         '/checkout-paypal',
         '/execute-paypal'

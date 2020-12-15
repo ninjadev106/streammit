@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Requests\UpdatePasswordRequest;
+use App\Http\Requests\UpdatePasswordRequest;
 
-class ConfirmPasswordController extends Controller
+use App\Models\User;
+
+class ChangePasswordController extends Controller
 {
     /**
      * Where to redirect users when the intended url fails.
@@ -26,7 +29,7 @@ class ConfirmPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function passwordResetProcess(UpdatePasswordRequest $request){
@@ -45,7 +48,7 @@ class ConfirmPasswordController extends Controller
       private function tokenNotFoundError() {
           return response()->json([
             'error' => 'Either your email or token is wrong.'
-          ],Response::HTTP_UNPROCESSABLE_ENTITY);
+          ], Response::HTTP_UNPROCESSABLE_ENTITY);
       }
   
       // Reset password
@@ -62,6 +65,6 @@ class ConfirmPasswordController extends Controller
           // reset password response
           return response()->json([
             'data'=>'Password has been updated.'
-          ],Response::HTTP_CREATED);
+          ], Response::HTTP_CREATED);
       }    
 }
