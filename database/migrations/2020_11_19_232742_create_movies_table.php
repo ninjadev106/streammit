@@ -23,6 +23,7 @@ class CreateMoviesTable extends Migration
             $table->unsignedBigInteger('quality');
             $table->string('file');
             $table->string('video_link');
+            $table->string('trailer_link');
             $table->string('duration');
             $table->integer('releseDate');
             $table->rememberToken();

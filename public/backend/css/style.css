@@ -382,6 +382,11 @@ body.sidebar-main .content-page { margin-left: 80px; }
 .form_video-upload { position: absolute; top: 0; left: 0; right: 0; background: var(--iq-body-bg); }
 .form_video-upload p { width: 100%; height: 100%; text-align: center; line-height: 310px; color: var(--iq-white); }
 .form_video-upload input { position: absolute; margin: 0; padding: 0; width: 100%; height: 100%; outline: none; opacity: 0; }
+
+.form_video-upload_alpha { top: 0; left: 0; right: 0; height:211px; margin-bottom: 2vh; background: var(--iq-body-bg); }
+.form_video-upload_alpha p { width: 100%; height: 100%; text-align: center; line-height: 215px; color: var(--iq-white); }
+.form_video-upload_alpha input { position: absolute; margin: 0; padding: 0; width: 100%; height: 100%; outline: none; opacity: 0; }
+
 .radio-box label { color: var(--iq-body-text); }
 .radio-btn { margin-left: 20px; }
 .select2-container--bootstrap4 .select2-selection--single .select2-selection__arrow b{ z-index: 9; }

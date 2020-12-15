@@ -61,6 +61,8 @@ class MovieController extends Controller
         {
             $data['file'] = $this->fileUploadService->uploadImage($file);
             $data['video_link'] = $this->fileUploadService->uploadVideo($video);
+            if ($trailer = $request->file('trailer'))
+                $data['trailer_link'] = $this->fileUploadService->uploadVideo($trailer);
             $movie = $this->movieService->create($data);
             return redirect()->route('admin.movie.index');
         }
@@ -84,7 +86,8 @@ class MovieController extends Controller
             $data['file'] = $this->fileUploadService->uploadImage($file);
         if ($video = $request->file('video'))
             $data['video_link'] = $this->fileUploadService->uploadVideo($video);
-
+        if ($trailer = $request->file('trailer'))
+            $data['trailer_link'] = $this->fileUploadService->uploadVideo($trailer);
         $this->movieService->update($id, $data);
         return redirect()->route('admin.movie.index');
     }

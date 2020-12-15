@@ -16,6 +16,8 @@ use App\Http\Controllers\NotifyController;
 
 // use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -44,6 +46,8 @@ Route::post('/visit', [LogController::class, 'visit_store']);
 Route::post('/download', [LogController::class, 'download_store']);
 Route::post('/view', [LogController::class, 'view_store']);
 Route::post('/contact-us', [ContactUSController::class, 'contact_us_post']);
+Route::post('/reset-password-request', [ResetPasswordController::class, 'sendPasswordResetEmail']);
+Route::post('/change-password1', [ChangePasswordController::class, 'passwordResetProcess']);
 
 Route::get('/notify', [NotifyController::class, 'get']);
 Route::post('/notify/confirm', [NotifyController::class, 'confirm']);
@@ -62,7 +66,7 @@ Route::group([
     Route::post('/logout', [JwtAuthController::class, 'logout']);
     Route::post('/refresh', [JwtAuthController::class, 'refresh']);
     Route::get('/user-profile', [JwtAuthController::class, 'userProfile']);
-    Route::post('/user-profile-update', [JwtAuthController::class, 'userProfileUpdate']);    
+    Route::post('/user-profile-update', [JwtAuthController::class, 'userProfileUpdate']);
     Route::post('/change-password', [JwtAuthController::class, 'changePassword']);
     Route::post('/change-email', [JwtAuthController::class, 'changeEmail']);
     Route::post('/upgrade-membership', [JwtAuthController::class, 'upgradeMembership']);

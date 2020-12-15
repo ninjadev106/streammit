@@ -17,6 +17,7 @@ class Movie extends Model
         'quality',
         'file',
         'video_link',
+        'trailer_link',
         'duration',
         'releseDate'
     ];

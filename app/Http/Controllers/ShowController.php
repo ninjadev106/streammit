@@ -61,6 +61,8 @@ class ShowController extends Controller
         {
             $data['file'] = $this->fileUploadService->uploadImage($file, 'f');
             $data['banner'] = $this->fileUploadService->uploadImage($banner, 'b');
+            if ($trailer = $request->file('trailer'))
+                $data['trailer_link'] = $this->fileUploadService->uploadVideo($trailer);
             $movie = $this->showService->create($data);
             return redirect()->route('admin.show.index');
         }
@@ -82,6 +84,8 @@ class ShowController extends Controller
             $data['file'] = $this->fileUploadService->uploadImage($file);
         if ($banner = $request->file('banner'))
             $data['banner'] = $this->fileUploadService->uploadImage($banner);
+        if ($trailer = $request->file('trailer'))
+            $data['trailer_link'] = $this->fileUploadService->uploadVideo($trailer);
         $this->showService->update($id, $data);
         return redirect()->route('admin.show.index');
     }

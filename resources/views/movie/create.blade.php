@@ -21,60 +21,64 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="row">
-                            <div class="col-12 form-group">
-                                <input type="text" class="form-control" placeholder="Title" id="title" name="title">
-                            </div>
-                            <div class="col-12 form_gallery form-group">
-                                <label id="gallery2" for="file">Upload Image</label>
-                                <input data-name="#gallery2" id="file" class="form_gallery-upload"
-                                    type="file" name="file" accept=".png, .jpg, .jpeg">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <select class="form-control" id="category" name="category">
-                                    <option disabled="">Movie Category</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <div class="col-12 form-group">
+                                    <input type="text" class="form-control" placeholder="Title" id="title" name="title">
+                                </div>
+                                <div class="col-12 form_gallery form-group">
+                                    <label id="gallery2" for="file">Upload Image</label>
+                                    <input data-name="#gallery2" id="file" class="form_gallery-upload"
+                                        type="file" name="file" accept=".png, .jpg, .jpeg">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <select class="form-control" id="category" name="category">
+                                        <option disabled="">Movie Category</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <select class="form-control" id="quality" name="quality">
+                                        <option disabled="">Choose quality</option>
+                                        @foreach ($qualities as $quality)
+                                            <option value="{{ $quality->id }}">{{ $quality->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <textarea id="description" rows="5" class="form-control"
+                                        placeholder="Description" name="description"></textarea>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <input type="text" class="form-control" placeholder="Release year" id="releseDate" name="releseDate">
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <select class="form-control" id="lang" name="lang">
+                                    <option selected disabled="">Choose Language</option>
+                                    @foreach ($langs as $lang)
+                                        <option value="{{ $lang->id }}">{{ $lang->name }}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                            <div class="col-sm-6 form-group">
-                                <select class="form-control" id="quality" name="quality">
-                                    <option disabled="">Choose quality</option>
-                                    @foreach ($qualities as $quality)
-                                        <option value="{{ $quality->id }}">{{ $quality->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-12 form-group">
-                                <textarea id="description" rows="5" class="form-control"
-                                    placeholder="Description" name="description"></textarea>
-                            </div>
+                                    </select>
+                                </div>
+                                <div class="col-sm-12 form-group">
+                                    <input type="text" class="form-control" placeholder="Movie Duration" id="duration" name="duration">
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-5">
                             <div class="d-block position-relative">
-                            <div class="form_video-upload">
-                                <input type="file" id="video" name="video" accept="video/mp4,video/x-m4v,video/*" multiple>
-                                <p>Upload video</p>
-                            </div>
+                                <div class="form_video-upload_alpha">
+                                    <input type="file" id="video" name="video" accept="video/mp4,video/x-m4v,video/*" multiple>
+                                    <p>Upload video</p>
+                                </div>
+                                <div class="form_video-upload_alpha">
+                                    <input type="file" id="trailer" name="trailer" accept="video/mp4,video/x-m4v,video/*" multiple>
+                                    <p>Trailer video</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6 form-group">
-                            <input type="text" class="form-control" placeholder="Release year" id="releseDate" name="releseDate">
-                        </div>
-                        <div class="col-sm-6 form-group">
-                            <select class="form-control" id="lang" name="lang">
-                            <option selected disabled="">Choose Language</option>
-                            @foreach ($langs as $lang)
-                                <option value="{{ $lang->id }}">{{ $lang->name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
-                        <div class="col-sm-12 form-group">
-                            <input type="text" class="form-control" placeholder="Movie Duration" id="duration" name="duration">
-                        </div>
                         <div class="col-12 form-group ">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a type="reset" class="btn btn-danger" href="{{ route('admin.movie.index') }}">cancel</a>

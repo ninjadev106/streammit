@@ -25,7 +25,7 @@ class ContactUSController extends Controller
 
         try {
 
-            \Mail::send('email.template', array(
+            \Mail::send('email.contact-us', array(
                 'name' => $data['name'],
                 'subject' => $data['subject'],
                 'email' => $data['email'],

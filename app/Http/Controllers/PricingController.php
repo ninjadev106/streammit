@@ -19,7 +19,8 @@ class PricingController extends Controller
 
     public function all()
     {
-        $memships = Membership::all();
+        // $memships = Membership::all();
+        $memships = Membership::where('name', '!=', 'Free Trial')->get();
         return response()->json($memships);
     }
 }

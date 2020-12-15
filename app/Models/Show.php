@@ -17,6 +17,7 @@ class Show extends Model
         'quality',
         'file',
         'banner',
+        'trailer_link',
     ];
 
     protected $table = 'si_shows';

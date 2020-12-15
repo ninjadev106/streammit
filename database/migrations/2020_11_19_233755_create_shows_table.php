@@ -23,6 +23,7 @@ class CreateShowsTable extends Migration
             $table->unsignedBigInteger('quality');
             $table->string('file');
             $table->string('banner');
+            $table->string('trailer_link');
             $table->rememberToken();
             $table->timestamps();
 

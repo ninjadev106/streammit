@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.d0651111d10f7a19c040398859dc0f74.js"
+  "/precache-manifest.240ea3c189cec6974b4898ba2c28abdc.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vito-vue"});
