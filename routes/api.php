@@ -54,6 +54,7 @@ Route::post('/notify/confirm', [NotifyController::class, 'confirm']);
 
 Route::get('/status', [PaymentController::class, 'getPaymentStatus']);
 Route::post('/payment/add-funds/paypal', [PaymentController::class, 'payWithpaypal']);
+Route::post('/payment/add-funds/stripe', [PaymentController::class, 'payWithStripe']);
 
 // Route::post('/checkout-paypal', [PaypalController::class, 'createPayment']);
 // Route::post('/execute-paypal', [PaypalController::class, 'executePaypal']);

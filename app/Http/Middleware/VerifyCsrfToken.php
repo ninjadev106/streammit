@@ -30,7 +30,6 @@ class VerifyCsrfToken extends Middleware
         '/reset-password-request',
         '/change-password1',
         '/notify/confirm',
-        '/checkout-paypal',
-        '/execute-paypal'
+        '/payment/add-funds/stripe'
     ];
 }

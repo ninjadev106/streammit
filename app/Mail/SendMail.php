@@ -30,8 +30,8 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('Email.resetPassword')->with([
+        return $this->markdown('email.resetpassword')->with([
             'token' => $this->token
-        ]);
+        ])->from('onyxstreaming2020@gmail.com', 'Onyx Streaming');
     }
 }
