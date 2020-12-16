@@ -164,7 +164,7 @@ class JwtAuthController extends Controller
             $memship->pivot->memship_id = $memshipId;
             $memship->pivot->save();
         }
-        return response()->json('membership upgraded successfully');
+        return response()->json($user->memships[0]);
     }
     /**
      * Get the token array structure.

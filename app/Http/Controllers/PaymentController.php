@@ -116,15 +116,17 @@ class PaymentController extends Controller
     public function payWithStripe(Request $request)
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        Stripe\Charge::create ([
-                "amount" => $request->get('amount'),
+        $charge = Stripe\Charge::create ([
+                "amount" => $request->get('amount') * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Making test payment." 
         ]);
   
         Session::flash('success', 'Payment has been successfully processed.');
-          
-        return back();
+        if ($charge)
+            return response()->json(['success' => true]);
+        else
+            return response()->json(['success' => false]);
     }
 }

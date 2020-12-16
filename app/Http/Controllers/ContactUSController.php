@@ -29,7 +29,7 @@ class ContactUSController extends Controller
                 'name' => $data['name'],
                 'subject' => $data['subject'],
                 'email' => $data['email'],
-                'message' => $data['message'],
+                'body' => $data['message'],
             ), function($message) use ($data){
                 $message->from($data['email']);
                 $message->to('info@onyxstreaming.com', 'Admin')->subject($data['subject']);
