@@ -59,10 +59,12 @@ class DownLogService extends BaseService
 
 			$movie = DB::table('si_movies')->find($cId);
 			$views = DB::table('si_view_log')->where(['content_type' => $cType, 'content_id' => $cId])->get();
-			$movie->viewCount = count($views);
-			$movie->downCount = $item->down_count;
-			$movie->type = "Movie";
-			array_push($topItems, $movie);
+			if ($movie) {
+				$movie->viewCount = count($views);
+				$movie->downCount = $item->down_count;
+				$movie->type = "Movie";
+				array_push($topItems, $movie);
+			}
 		}
 		foreach ($showMapList as $item) {
 			$cId = $item->content_id;
@@ -70,10 +72,12 @@ class DownLogService extends BaseService
 
 			$show = DB::table('si_shows')->find($cId);
 			$views = DB::table('si_view_log')->where(['content_type' => $cType, 'content_id' => $cId])->get();
-			$show->viewCount = count($views);
-			$show->downCount = $item->down_count;
-			$show->type = "T.v Show";	
-			array_push($topItems, $show);
+			if ($show) {
+				$show->viewCount = count($views);
+				$show->downCount = $item->down_count;
+				$show->type = "T.v Show";	
+				array_push($topItems, $show);
+			}
 		}
 
 		return $topItems;

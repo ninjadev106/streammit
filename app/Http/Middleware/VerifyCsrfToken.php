@@ -21,6 +21,7 @@ class VerifyCsrfToken extends Middleware
         '/auth/change-email',
         '/auth/upgrade-membership',
         '/auth/save-device-token',
+        '/auth/expired',
         '/comment',
         '/visit',
         '/download',

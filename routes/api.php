@@ -66,6 +66,7 @@ Route::group([
     Route::post('/signup', [JwtAuthController::class, 'register']);
     Route::post('/logout', [JwtAuthController::class, 'logout']);
     Route::post('/refresh', [JwtAuthController::class, 'refresh']);
+    Route::post('/expired', [JwtAuthController::class, 'expired']);
     Route::get('/user-profile', [JwtAuthController::class, 'userProfile']);
     Route::post('/user-profile-update', [JwtAuthController::class, 'userProfileUpdate']);
     Route::post('/change-password', [JwtAuthController::class, 'changePassword']);

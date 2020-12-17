@@ -396,6 +396,7 @@
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <!-- <script src="{{ asset('backend/js/jquery.min.js') }}"></script> -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="http://malsup.github.com/jquery.form.js"></script>
    <script src="{{ asset('backend/js/popper.min.js') }}"></script>
    <script src="{{ asset('backend/js/bootstrap.min.js') }}"></script>
    <script src="{{ asset('backend/js/jquery.dataTables.min.js') }}"></script>

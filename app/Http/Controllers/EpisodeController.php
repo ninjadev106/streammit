@@ -60,9 +60,11 @@ class EpisodeController extends Controller
             $data['file'] = $this->fileUploadService->uploadImage($file);
             $data['video_link'] = $this->fileUploadService->uploadVideo($video);
             $episode = $this->episodeService->create($data);
-            return redirect()->route('admin.episode.index');
+            return response()->json('success');
+            // return redirect()->route('admin.episode.index');
         }
-        return redirect()->route('admin.episode.create');
+        return response()->json('failed');
+        // return redirect()->route('admin.episode.create');
     }
     public function update(Request $request, $id)
     {
@@ -84,7 +86,8 @@ class EpisodeController extends Controller
             $data['video_link'] = $this->fileUploadService->uploadVideo($video);
 
         $this->episodeService->update($id, $data);
-        return redirect()->route('admin.episode.index');
+        return response()->json('success');
+        // return redirect()->route('admin.episode.index');
     }
     public function destroy($id)
     {

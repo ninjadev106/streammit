@@ -15,7 +15,7 @@
                 </div>
                 </div>
                 <div class="iq-card-body">
-                <form id="edit-form" action="{{ route('admin.episode.update', $episode->id) }}" method="POST" onsubmit="return onSubmit(event)" enctype="multipart/form-data">
+                <form id="edit-form" action="{{ route('admin.episode.update', $episode->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -77,6 +77,11 @@
             </div>
         </div>
     </div>
+    <div class="progress-line" style="display: none">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    <div class="overlay" style="display: none"></div>
 </div>
 @endsection
 
@@ -85,63 +90,123 @@
     height: 385px;
     margin-bottom: 20px;
 }
+.progress-line { position:relative; width:100%; border: 1px solid white; padding: 1px; border-radius: 3px;  z-index: 11}
+.bar { background-color: #017afe; width:0%; height:25px; border-radius: 3px; }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; color: white;}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
 </style>
 
 @section('script')
 <script>
-    var cur_show = $('select#show').attr('data-opt-value');
-    var cur_season = $('select#season').attr('data-opt-value');
-    $('select#show').val(cur_show);
-    $('select#season').val(cur_season);
-    function onSubmit(e) {
-        let episodeNo = $('#edit-form #episode').val();
-        let episodeName = $('#edit-form #name').val();
-        let episodeFile = $('#edit-form #file').attr('value');
-        let episodeVideo = $('#edit-form #video').attr('value');
-        let episodeDspt = $('#edit-form #description').val();
-        let episodeDate = $('#edit-form #date').val();
-        let episodeduration = $('#edit-form #duration').val();
-        let show = $('#edit-form #show').val();
-        let season = $('#edit-form #season').val();
+    $(document).ready(function () {
+        var cur_show = $('select#show').attr('data-opt-value');
+        var cur_season = $('select#season').attr('data-opt-value');
+        $('select#show').val(cur_show);
+        $('select#season').val(cur_season);
+        function validate () {
+            let episodeNo = $('#edit-form #episode').val();
+            let episodeName = $('#edit-form #name').val();
+            let episodeFile = $('#edit-form #file').attr('value');
+            let episodeVideo = $('#edit-form #video').attr('value');
+            let episodeDspt = $('#edit-form #description').val();
+            let episodeDate = $('#edit-form #date').val();
+            let episodeduration = $('#edit-form #duration').val();
+            let show = $('#edit-form #show').val();
+            let season = $('#edit-form #season').val();
 
-        let durationTester = /^(10|11|12|[1-9])h [0-5][0-9]m$/
-        let episodeNoTester = /^[1-9][0-9]*$/
-        if (!show) {
-            alert("Please select show value");
-            return false;
+            let durationTester = /^(10|11|12|[1-9])h [0-5][0-9]m$/
+            let episodeNoTester = /^[1-9][0-9]*$/
+            if (!show) {
+                alert("Please select show value");
+                return false;
+            }
+            if (!season) {
+                alert("Please select season");
+                return false;
+            }
+            if (!episodeNoTester.test(episodeNo)) {
+                alert("Please ensure valid episode number type. (e.g. 12)");
+                return false;
+            }
+            if (!episodeName) {
+                alert("Please enter episode name");
+                return false;
+            }
+            if (!episodeFile) {
+                alert("Please select episode image");
+                return false;
+            }
+            if (!episodeVideo) {
+                alert("Please select episode video");
+                return false;
+            }
+            if (!episodeDspt) {
+                alert("Please enter episode description");
+                return false;
+            }
+            if (!episodeDate) {
+                alert("Please select episode date");
+                return false;
+            }
+            if (!durationTester.test(episodeduration)) {
+                alert("Please ensure valid duration type. (e.g. 2h 12m)");
+                return false;
+            }
+            return true;
         }
-        if (!season) {
-            alert("Please select season");
-            return false;
+        var bar = $('.progress-line .bar');
+        var percent = $('.progress-line .percent');
+        function init_progress_bar () {
+            percent.html('0%')
+            bar.width('0%')
         }
-        if (!episodeNoTester.test(episodeNo)) {
-            alert("Please ensure valid episode number type. (e.g. 12)");
-            return false;
+        function show_progress_bar () {
+            $('.progress-line').show()
+            $('.overlay').show()
         }
-        if (!episodeName) {
-            alert("Please enter episode name");
-            return false;
+        function hide_progress_bar () {
+            $('.progress-line').hide()
+            $('.overlay').hide()
         }
-        if (!episodeFile) {
-            alert("Please select episode image");
-            return false;
-        }
-        if (!episodeVideo) {
-            alert("Please select episode video");
-            return false;
-        }
-        if (!episodeDspt) {
-            alert("Please enter episode description");
-            return false;
-        }
-        if (!episodeDate) {
-            alert("Please select episode date");
-            return false;
-        }
-        if (!durationTester.test(episodeduration)) {
-            alert("Please ensure valid duration type. (e.g. 2h 12m)");
-            return false;
-        }
-    }
+        $('#edit-form').ajaxForm({
+            beforeSubmit: validate,
+            beforeSend: function() {
+                // status.empty();
+                init_progress_bar()
+                show_progress_bar()
+            },
+            uploadProgress: function(event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+                console.log(percentComplete)
+            },
+            success: function() {
+                var percentVal = 'Wait, Saving';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            complete: function(xhr) {
+                console.log(xhr);
+                if (xhr.responseJSON == 'success') {
+                    alert('Uploaded Successfully');
+                    window.location.href = "{!! route('admin.episode.index'); !!}";
+                } else {
+                    alert('Sorry, uploading failed because of some reasons');
+                }
+                init_progress_bar()
+                hide_progress_bar()
+            } 
+        });
+    })
+    
 </script>
 @endsection

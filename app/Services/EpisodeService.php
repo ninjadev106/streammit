@@ -37,6 +37,8 @@ class EpisodeService extends BaseService
 	public function getDetail($id)
 	{
 		$episode = Episode::find($id);
+		if (!$episode)
+			return null;
 		$show = $episode->show_record;
 		$episode->show = $show->title;
 		return $episode;
@@ -50,12 +52,16 @@ class EpisodeService extends BaseService
 	public function update($id, $data)
 	{
 		$episode = $this->getById($id);
+		if (!$episode)
+			return false;
 		return $episode->update($data);
 	}
 
 	public function delete($id)
 	{
 		$episode = $this->getById($id);
+		if (!$episode)
+			return false;
 		return $episode->delete();
 	}
 

@@ -39,7 +39,9 @@ class MovieService extends BaseService
 
 	public function getDetail($id)
 	{
-		$movie = Movie::find($id);
+		$movie = $this->getById($id);
+		if (!$movie)
+			return null;
 		$movie->category = $movie->category_record->name;
 		$movie->lang = $movie->lang_record->name;
 		$movie->quality = $movie->quality_record->name;
@@ -61,12 +63,16 @@ class MovieService extends BaseService
 	public function update($id, $data)
 	{
 		$movie = $this->getById($id);
+		if (!$movie)
+			return false;
 		return $movie->update($data);
 	}
 
 	public function delete($id)
 	{
 		$movie = $this->getById($id);
+		if (!$movie)
+			return false;
 		return $movie->delete();
 	}
 

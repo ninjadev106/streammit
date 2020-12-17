@@ -15,6 +15,7 @@ use App\Services\UserService;
 use App\Services\FileUploadService;
 use App\Services\LoginLogService;
 
+use App\Models\Membership;
 use App\Rules\MatchOldPassword;
 
 class JwtAuthController extends Controller
@@ -32,7 +33,7 @@ class JwtAuthController extends Controller
         $this->fileUploadService = $fileUploadService;
         $this->loginLogService = $loginLogService;
 
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'expired']]);
     }
 
     public function register(Request $request)
@@ -62,7 +63,7 @@ class JwtAuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-
+        // auth('api')->factory()->setTTL(5);
         if (! $token = auth('api')->attempt($validator->validated())) {
             return response()->json(['success' => false, 'message' => 'You are an unauthorized user']);
         }
@@ -101,10 +102,19 @@ class JwtAuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh() {
-        return $this->createNewToken(auth('api')->refresh());
+    public function refresh(Request $request) {
+        $auth_header = $request->header('Authorization');
+        $prev_token = explode('bearer ', $auth_header)[1];
+        $new_token = auth('api')->refresh();
+        $this->loginLogService->update($prev_token, $new_token);
+        return $this->createNewToken($new_token);
     }
-
+    public function expired(Request $request) {
+        $auth_header = $request->header('Authorization');
+        $token = explode('bearer ', $auth_header)[1];
+        $this->loginLogService->delete($token);
+        return response()->json(['message' => 'token expired.']);
+    }
      /**
      * Get the authenticated User.
      *
@@ -164,7 +174,8 @@ class JwtAuthController extends Controller
             $memship->pivot->memship_id = $memshipId;
             $memship->pivot->save();
         }
-        return response()->json($user->memships[0]);
+        $memship = Membership::find($memshipId);
+        return response()->json($memship);
     }
     /**
      * Get the token array structure.
@@ -181,7 +192,7 @@ class JwtAuthController extends Controller
             'success' => true,
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60 * 60,
+            'expires_in' => auth('api')->factory()->getTTL() * 5,
             'user' => $user
         ]);
     }

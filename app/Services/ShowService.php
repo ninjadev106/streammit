@@ -41,7 +41,9 @@ class ShowService extends BaseService
 
 	public function getDetail($id)
 	{
-		$show = Show::find($id);
+		$show = $this->getById($id);
+		if (!$show)
+			return false;
 		$show->category = $show->category_record->name;
 		$show->lang = $show->lang_record->name;
 		$show->quality = $show->quality_record->name;
@@ -64,12 +66,16 @@ class ShowService extends BaseService
 	public function update($id, $data)
 	{
 		$show = $this->getById($id);
+		if (!$show)
+			return false;
 		return $show->update($data);
 	}
 
 	public function delete($id)
 	{
 		$show = $this->getById($id);
+		if (!$show)
+			return false;
 		return $show->delete();
 	}
 

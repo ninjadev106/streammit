@@ -16,7 +16,7 @@
                 </div>
                 </div>
                 <div class="iq-card-body">
-                <form id="edit-form" action="{{ route('admin.movie.update', $movie->id) }}" method="POST" onsubmit="return onSubmit(event)" enctype="multipart/form-data">
+                <form id="edit-form" action="{{ route('admin.movie.update', $movie->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -90,68 +90,134 @@
             </div>
         </div>
     </div>
+    <div class="progress-line" style="display: none">
+        <div class="bar"></div >
+        <div class="percent">0%</div >
+    </div>
+    <div class="overlay" style="display: none"></div>
 </div>
 @endsection
-
+<style>
+.progress-line { position:relative; width:100%; border: 1px solid white; padding: 1px; border-radius: 3px;  z-index: 11}
+.bar { background-color: #017afe; width:0%; height:25px; border-radius: 3px; }
+.percent { position:absolute; display:inline-block; top:3px; left:48%; color: white;}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+</style>
 @section('script')
 <script>
-    var cur_category = $('select#category').attr('data-opt-value');
-    var cur_lang = $('select#lang').attr('data-opt-value');
-    var cur_quality = $('select#quality').attr('data-opt-value');
-    $('select#category').val(cur_category);
-    $('select#lang').val(cur_lang);
-    $('select#quality').val(cur_quality);
+    $(document).ready(function () {
+        var cur_category = $('select#category').attr('data-opt-value');
+        var cur_lang = $('select#lang').attr('data-opt-value');
+        var cur_quality = $('select#quality').attr('data-opt-value');
+        $('select#category').val(cur_category);
+        $('select#lang').val(cur_lang);
+        $('select#quality').val(cur_quality);
 
-    function onSubmit(e) {
-        let movieTitle = $('#edit-form #title').val();
-        let movieFile = $('#edit-form #file').attr('value');
-        let movieCategory = $('#edit-form #category').val();
-        let movieQuality = $('#edit-form #quality').val();
-        let movieVideo = $('#edit-form #video').attr('value');
-        let movieDspt = $('#edit-form #description').val();
-        let movieRlsDate = $('#edit-form #releseDate').val();
-        let movieLang = $('#edit-form #lang').val();
-        let movieduration = $('#edit-form #duration').val();
+        function validate () {
+            let movieTitle = $('#edit-form #title').val();
+            let movieFile = $('#edit-form #file').attr('value');
+            let movieCategory = $('#edit-form #category').val();
+            let movieQuality = $('#edit-form #quality').val();
+            let movieVideo = $('#edit-form #video').attr('value');
+            let movieDspt = $('#edit-form #description').val();
+            let movieRlsDate = $('#edit-form #releseDate').val();
+            let movieLang = $('#edit-form #lang').val();
+            let movieduration = $('#edit-form #duration').val();
 
-        let durationTester = /^(10|11|12|[1-9])h [0-5][0-9]m$/
-        let releseDateTester = /^\d{4}$/
-        if (!movieTitle) {
-            alert("Please enter movie title");
-            return false;
+            let durationTester = /^(10|11|12|[1-9])h [0-5][0-9]m$/
+            let releseDateTester = /^\d{4}$/
+            if (!movieTitle) {
+                alert("Please enter movie title");
+                return false;
+            }
+            if (!movieFile) {
+                alert("Please select movie image");
+                return false;
+            }
+            if (!movieVideo) {
+                alert("Please select movie video");
+                return false;
+            }
+            if (!movieDspt) {
+                alert("Please enter movie description");
+                return false;
+            }
+            if (!movieCategory) {
+                alert("Please select movie category");
+                return false;
+            }
+            if (!movieQuality) {
+                alert("Please select movie quality");
+                return false;
+            }
+            if (!movieLang) {
+                alert("Please select movie language");
+                return false;
+            }
+            
+            if (!durationTester.test(movieduration)) {
+                alert("Please ensure valid duration type. (e.g. 2h 12m)");
+                return false;
+            }
+            if (!releseDateTester.test(movieRlsDate)) {
+                alert("please ensure valid year type. (e.g. 2020)");
+                return false;
+            }
+            return true;
         }
-        if (!movieFile) {
-            alert("Please select movie image");
-            return false;
+        var bar = $('.progress-line .bar');
+        var percent = $('.progress-line .percent');
+        function init_progress_bar () {
+            percent.html('0%')
+            bar.width('0%')
         }
-        if (!movieVideo) {
-            alert("Please select movie video");
-            return false;
+        function show_progress_bar () {
+            $('.progress-line').show()
+            $('.overlay').show()
         }
-        if (!movieDspt) {
-            alert("Please enter movie description");
-            return false;
+        function hide_progress_bar () {
+            $('.progress-line').hide()
+            $('.overlay').hide()
         }
-        if (!movieCategory) {
-            alert("Please select movie category");
-            return false;
-        }
-        if (!movieQuality) {
-            alert("Please select movie quality");
-            return false;
-        }
-        if (!movieLang) {
-            alert("Please select movie language");
-            return false;
-        }
+        $('#edit-form').ajaxForm({
+            beforeSubmit: validate,
+            beforeSend: function() {
+                // status.empty();
+                init_progress_bar()
+                show_progress_bar()
+            },
+            uploadProgress: function(event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal)
+                percent.html(percentVal);
+                console.log(percentComplete)
+            },
+            success: function() {
+                var percentVal = 'Wait, Saving';
+                bar.width(percentVal)
+                percent.html(percentVal);
+            },
+            complete: function(xhr) {
+                console.log(xhr);
+                if (xhr.responseJSON == 'success') {
+                    alert('Uploaded Successfully');
+                    window.location.href = "{!! route('admin.movie.index'); !!}";
+                } else {
+                    alert('Sorry, uploading failed because of some reasons');
+                }
+                init_progress_bar()
+                hide_progress_bar()
+            } 
+        });
+    })
         
-        if (!durationTester.test(movieduration)) {
-            alert("Please ensure valid duration type. (e.g. 2h 12m)");
-            return false;
-        }
-        if (!releseDateTester.test(movieRlsDate)) {
-            alert("please ensure valid year type. (e.g. 2020)");
-            return false;
-        }
-    }
 </script>
 @endsection

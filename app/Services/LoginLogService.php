@@ -39,9 +39,10 @@ class LoginLogService extends BaseService
 		return LoginLog::create($data);
 	}
 
-	public function update($id, $data)
+	public function update($prev, $new)
 	{
-		
+		$log = $this->getByToken($prev);
+		return $log->update(['token' => $new]);
 	}
 
 	public function delete($token)

@@ -38,17 +38,19 @@ class ViewLogService extends BaseService
 		foreach ($mapList as $item) {
 			$cId = $item->content_id;
 			$cType = $item->content_type;
-
 			if ($cType == 'movie')
 				$content = $this->movieService->getDetail($cId);
 			else if ($cType == 'show')
 				$content = $this->showService->getDetail($cId);
 			else
 				continue;
-			$content->date = $item->date;
-			$content->viewCount = $item->view_count;
-			$content->downCount = count(DownloadLog::where(['content_type' => $cType, 'content_id' => $cId])->get());
-			array_push($data, $content);
+			
+			if ($content) {
+				$content->date = $item->date;
+				$content->viewCount = $item->view_count;
+				$content->downCount = count(DownloadLog::where(['content_type' => $cType, 'content_id' => $cId])->get());
+				array_push($data, $content);
+			}
 		}
 		return $data;
 	}
