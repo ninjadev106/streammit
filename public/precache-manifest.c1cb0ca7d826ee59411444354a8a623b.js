@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "488644dc42f76a0d1901",
+    "revision": "5570cbcdb98ab8b4841e",
     "url": "/frontend/css/app.c6960087.css"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/css/chunk-4d1f8220.5cacb100.css"
   },
   {
-    "revision": "22e152abc46f27f6261f",
+    "revision": "0829a3d5f73c6162a99d",
     "url": "/frontend/css/chunk-52e22b85.b038d712.css"
   },
   {
@@ -356,8 +356,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/img/texure.1ab5dbac.jpg"
   },
   {
-    "revision": "488644dc42f76a0d1901",
-    "url": "/frontend/js/app.1171f157.js"
+    "revision": "5570cbcdb98ab8b4841e",
+    "url": "/frontend/js/app.ac5e7174.js"
   },
   {
     "revision": "3cdebd30a2f76a1be67e",
@@ -376,8 +376,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/js/chunk-149e0748.7d7114be.js"
   },
   {
-    "revision": "6da5ffe4a4cd8cb3fb62",
-    "url": "/frontend/js/chunk-1d62b291.1b1f1c60.js"
+    "revision": "0d9a11cd90d5870392fb",
+    "url": "/frontend/js/chunk-1d62b291.08728f47.js"
   },
   {
     "revision": "188140516293a90e54b9",
@@ -448,8 +448,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend/js/chunk-520b2fd3.05e5366a.js"
   },
   {
-    "revision": "22e152abc46f27f6261f",
-    "url": "/frontend/js/chunk-52e22b85.de7270e2.js"
+    "revision": "0829a3d5f73c6162a99d",
+    "url": "/frontend/js/chunk-52e22b85.375bf312.js"
   },
   {
     "revision": "d88d6043099fbd255f27",
@@ -524,7 +524,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/firebase-messaging-sw.js"
   },
   {
-    "revision": "0144fff8cfd3aa011ef0132f48620fcf",
+    "revision": "1c9e7b4d8fd8f8be13559b444e80d4ca",
     "url": "/index.html"
   },
   {

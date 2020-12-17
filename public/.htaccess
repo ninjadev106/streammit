@@ -19,8 +19,8 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    php_value upload_max_filesize 10G
-    php_value post_max_size 10G
-    php_value max_input_time 300
-    php_value max_execution_time 300
+    php_value upload_max_filesize 100G
+    php_value post_max_size 100G
+    php_value max_input_time 300000
+    php_value max_execution_time 300000
 </IfModule>
